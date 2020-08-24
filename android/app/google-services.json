@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "766193070271",
+    "firebase_url": "https://mejorshop-login.firebaseio.com",
+    "project_id": "mejorshop-login",
+    "storage_bucket": "mejorshop-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766193070271:android:ef12fd613e3150614dd60a",
+        "android_client_info": {
+          "package_name": "com.rn_oreo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766193070271-mi68pts3vjneu4r6vctp6d3lrp04kl23.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCijVLQ1XjRnOGP0uqz_DW88XHPq4H7kUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766193070271-mi68pts3vjneu4r6vctp6d3lrp04kl23.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
