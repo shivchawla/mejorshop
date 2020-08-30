@@ -23,38 +23,38 @@ function* createOrderSaga() {
     const prepareData = data
       .update('line_items', line_items => {
         return line_items.map(item => {
-          const isVariation = !!item.getIn(['variation', 'id']);
+          const isVariation = !!item.get('variation_id');
           // currency change
-          if (defaultCurrency !== currency) {
-            // With variation product
-            if (isVariation) {
-              const regular_price = item.getIn(['variation', 'multi-currency-prices', currency, 'regular_price'], 0);
-              const sale_price = item.getIn(['variation', 'multi-currency-prices', currency, 'sale_price'], 0);
-              return {
-                product_id: item.get('product_id'),
-                quantity: item.get('quantity'),
-                total: `${sale_price ? sale_price * item.get('quantity') : regular_price * item.get('quantity')}`,
-                meta_data: item.get('meta_data').map(md => ({key: md.get('key'), value: md.get('name')})),
-                variation_id: item.getIn(['variation', 'id'])
-              };
-            }
+          // if (defaultCurrency !== currency) {
+          //   // With variation product
+          //   if (isVariation) {
+          //     const regular_price = item.getIn(['variation', 'multi-currency-prices', currency, 'regular_price'], 0);
+          //     const sale_price = item.getIn(['variation', 'multi-currency-prices', currency, 'sale_price'], 0);
+          //     return {
+          //       product_id: item.get('product_id'),
+          //       quantity: item.get('quantity'),
+          //       total: `${sale_price ? sale_price * item.get('quantity') : regular_price * item.get('quantity')}`,
+          //       meta_data: item.get('meta_data').map(md => ({key: md.get('key'), value: md.get('name')})),
+          //       variation_id: item.getIn(['variation', 'id'])
+          //     };
+          //   }
 
-            const product = item.get('product');
-            // With single product
-            const regular_price = product.getIn(['multi-currency-prices', currency, 'regular_price'], 0);
-            const sale_price = product.getIn(['multi-currency-prices', currency, 'sale_price'], 0);
-            return {
-              product_id: item.get('product_id'),
-              quantity: item.get('quantity'),
-              total: `${sale_price ? sale_price * item.get('quantity') : regular_price * item.get('quantity')}`
-            };
-          }
+          //   const product = item.get('product');
+          //   // With single product
+          //   const regular_price = product.getIn(['multi-currency-prices', currency, 'regular_price'], 0);
+          //   const sale_price = product.getIn(['multi-currency-prices', currency, 'sale_price'], 0);
+          //   return {
+          //     product_id: item.get('product_id'),
+          //     quantity: item.get('quantity'),
+          //     total: `${sale_price ? sale_price * item.get('quantity') : regular_price * item.get('quantity')}`
+          //   };
+          // }
           if (isVariation) {
             return {
               product_id: item.get('product_id'),
               quantity: item.get('quantity'),
               // meta_data: item.getIn(['variation','meta_data']).map(md => ({key: md.get('key'), value: md.get('name')})),
-              variation_id: item.getIn(['variation', 'id'], null)
+              variation_id: item.get('variation_id')
             };
           }
           return {
@@ -107,6 +107,7 @@ function* createOrderSaga() {
 function* updateOrderSaga({ payload }) {
   try {
     const {id} = payload;
+
     yield call(deleteOrder, id);
     yield put({
       type: Actions.CREATE_ORDER,

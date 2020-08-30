@@ -1,0 +1,27 @@
+Enter keystore password:
+Alias name: mejorshop-upload-key
+Creation date: Aug 23, 2020
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: CN=Shiv Chawla, OU=Mejorshop, O=Mejorspacio, L=Guatemala, ST=Guatemala, C=GT
+Issuer: CN=Shiv Chawla, OU=Mejorshop, O=Mejorspacio, L=Guatemala, ST=Guatemala, C=GT
+Serial number: 33b080c2
+Valid from: Sun Aug 23 16:54:16 CST 2020 until: Thu Jan 09 16:54:16 CST 2048
+Certificate fingerprints:
+         MD5:  08:7C:7F:46:E4:2C:EE:B7:DD:56:24:E4:93:78:F2:90
+         SHA1: A9:AD:84:B9:E4:E7:A5:FD:9D:09:3D:5D:6F:C8:71:D5:A3:93:D5:3B
+         SHA256: D0:A6:B0:B3:79:85:D4:0B:C7:78:F5:DA:91:D6:82:A3:E4:9F:EC:0E:E5:96:07:E0:75:34:54:1D:B6:41:F4:22
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 35 2D CC 1A 45 F6 16 F8   73 A6 42 F4 09 6A F2 70  5-..E...s.B..j.p
+0010: FC 47 7B 7E                                        .G..
+]
+]

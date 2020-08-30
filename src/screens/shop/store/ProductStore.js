@@ -2,24 +2,39 @@ import React, {Component} from 'react';
 import {Map, fromJS} from 'immutable';
 import {connect} from 'react-redux';
 
-import {StyleSheet, View, FlatList, ActivityIndicator} from 'react-native';
+import {StyleSheet, View, FlatList, ActivityIndicator, Dimensions} from 'react-native';
 
 import Container from 'src/containers/Container';
 import Refine from 'src/screens/shop/containers/Refine';
-import ItemProduct from './ItemProduct';
+// import ItemProduct from './ItemProduct';
+import ItemProduct from 'src/containers/ProductItem';
 import ModalFilter from './ModalFilter';
 
 import {green} from 'src/components/config/colors';
-import {margin} from 'src/components/config/spacing';
+import {padding, margin} from 'src/components/config/spacing';
 import {getProductsByVendorId} from 'src/modules/vendor/service';
 import {prepareProductItem} from 'src/utils/product';
 import {
+  columnProductSelector,
   currencySelector,
   daysBeforeNewProductSelector,
   defaultCurrencySelector,
 } from 'src/modules/common/selectors';
 
+import {PER_PAGE} from 'src/config/product';
+
 // import {fetchVendorDetail} from 'src/modules/vendor/actions';
+
+const { width } = Dimensions.get('window');
+
+const widthImage = (col = 1) => {
+  const widthFlatList = width - 2 * padding.large;
+  const widthDistantImage = (col - 1) * padding.small;
+  return (widthFlatList - widthDistantImage) / col;
+};
+const heightImage = (w = 168) => {
+  return (w * 200) / 168;
+};
 
 class ProductStore extends Component {
   constructor(props) {
@@ -51,7 +66,7 @@ class ProductStore extends Component {
     const query = Map({
       status: 'publish',
       lang: lang,
-      per_page: 4,
+      per_page: PER_PAGE,
       page: page,
       ...objectSortBy,
     });
@@ -63,12 +78,12 @@ class ProductStore extends Component {
       const {store} = this.props;
       const dataGet = await this.getData(store.vendor_id, page);
 
-      if (dataGet.length <= 4 && dataGet.length > 0) {
+      if (dataGet.length <= PER_PAGE && dataGet.length > 0) {
         this.setState(preState => {
           return {
             loading: false,
             refreshing: false,
-            loadingMore: dataGet.length === 4,
+            loadingMore: dataGet.length === PER_PAGE,
             data: page === 1 ? fromJS(dataGet) : preState.data.concat(fromJS(dataGet)),
           };
         });
@@ -137,10 +152,14 @@ class ProductStore extends Component {
 
   render() {
     const {loading, refreshing, data, sortBy, isModalRefine} = this.state;
-    const {currency, defaultCurrency, days} = this.props;
+    const {column, currency, defaultCurrency, days} = this.props;
     const dataPrepare = data.map(item =>
       prepareProductItem(item, currency, defaultCurrency, days),
     );
+
+    const wImage = widthImage(column);
+    const hImage = heightImage(wImage);
+ 
 
     return (
       <View style={styles.container}>
@@ -152,12 +171,16 @@ class ProductStore extends Component {
             showsHorizontalScrollIndicator={false}
             ItemSeparatorComponent={() => <View style={styles.separator} />}
             keyExtractor={item => `${item.id}`}
+            numColumns={column}
+            columnWrapperStyle={column > 1 ? styles.viewCol : null}
             data={dataPrepare.toJS()}
             renderItem={({item}) => (
-              <ItemProduct item={item} />
+              <Container disable={column > 1 ? 'all' : 'none'}>
+                <ItemProduct item={item} width={wImage} height={hImage} />
+              </Container>
             )}
             onEndReached={this.handleLoadMore}
-            onEndReachedThreshold={0.5}
+            onEndReachedThreshold={0.7}
             ListFooterComponent={this.renderFooter}
             refreshing={refreshing}
             onRefresh={this.handleRefresh}
@@ -195,10 +218,17 @@ const styles = StyleSheet.create({
   overlayIconMessage: {
     backgroundColor: green,
   },
+  viewCol: {
+    justifyContent: 'space-between',
+    paddingHorizontal: padding.large,
+  },
   containerIconMessage: {
     position: 'absolute',
     right: margin.big,
     bottom: margin.big,
+  },
+  separator: {
+    height: 36,
   },
   viewFooter: {
     marginBottom: 26,
@@ -211,6 +241,7 @@ const styles = StyleSheet.create({
 });
 const mapStateToProps = state => {
   return {
+    column: columnProductSelector(state),
     currency: currencySelector(state),
     defaultCurrency: defaultCurrencySelector(state),
     days: daysBeforeNewProductSelector(state),

@@ -87,12 +87,14 @@ class CartScreen extends React.Component {
 
   updateQuantity = (item, quantity) => {
     const {dispatch} = this.props;
-    const {key, product} = item;
+    const {key, product, variation} = item;
 
     if (quantity < 1) {
       this.notificationDeleteItem(key);
     } else {
-      const check = checkQuantity(product, quantity);
+      // const check = checkQuantity(variation ? variation : product , quantity);
+      const check = checkQuantity(item , quantity);
+
       if (check) {
         dispatch(
           updateQuantityCart({
@@ -103,7 +105,7 @@ class CartScreen extends React.Component {
       } else {
         showMessage({
           message: '¡Oops! No puedes cambiar la cantidad',
-          description: 'El producto esta agotado o es único',
+          description: 'No hay más disponible',
           type: 'danger',
         });
       }

@@ -57,21 +57,33 @@ export default function authReducer(state = initState, action = {}) {
       return state.set('pendingMobile', true);
     case Actions.SIGN_IN_WITH_MOBILE_ERROR:
       return state.set('pendingMobile', false);
+    
+    case Actions.INITIATE_SOCIAL_LOGIN:
+      const nwi = action.payload.network;
+      return state.set(`pending${nwi}`, true); 
+    
+    case Actions.CANCEL_SOCIAL_LOGIN:
+      const nwc = action.payload.network;
+      return state.set(`pending${nwc}`, false);
+    
     case Actions.SIGN_IN_WITH_GOOGLE:
       return state.set('pendingGoogle', true);
     case Actions.SIGN_IN_WITH_GOOGLE_ERROR:
     case Actions.SIGN_IN_WITH_GOOGLE_CANCEL:
-      return state.set('pendingGoogle', false);
+      return state
+        .set('pendingGoogle', false);
     case Actions.SIGN_IN_WITH_APPLE:
       return state.set('pendingApple', true);
     case Actions.SIGN_IN_WITH_FACEBOOK:
       return state.set('pendingFacebook', true);
     case Actions.SIGN_IN_WITH_FACEBOOK_ERROR:
     case Actions.SIGN_IN_WITH_FACEBOOK_CANCEL:
-      return state.set('pendingFacebook', false);
+      return state
+        .set('pendingFacebook', false);
     case Actions.SIGN_IN_WITH_APPLE_ERROR:
     case Actions.SIGN_IN_WITH_APPLE_CANCEL:
-      return state.set('pendingApple', false);
+      return state
+        .set('pendingApple', false);
     case Actions.SIGN_UP_WITH_EMAIL:
       return state.set('pending', true).set('signUpError', fromJS(initError));
     case Actions.SIGN_UP_WITH_EMAIL_SUCCESS:

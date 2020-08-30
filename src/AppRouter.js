@@ -49,7 +49,7 @@ class AppRouter extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount() {   
     NetInfo.addEventListener(state => {
       const {isCheck} = this.state;
       const {isConnected} = state;

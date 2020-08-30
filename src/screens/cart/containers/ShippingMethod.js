@@ -91,9 +91,6 @@ class ShippingMethod extends React.Component {
 
         const shippingMethods = await fetchShippingMethod(query);
 
-        // console.log("WTF");
-        // console.log(shippingMethods);
-
         this.setState({
           loading: false,
           shippingMethods: shippingMethods,

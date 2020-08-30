@@ -229,3 +229,17 @@ export function getFilesDonwload() {
     payload: {},
   };
 }
+
+export function initiateSocialLogin(network) {
+  return {
+    type: Actions.INITIATE_SOCIAL_LOGIN,
+    payload: {network}
+  }
+}
+
+export function cancelSocialLogin(network) {
+  return {
+    type: Actions.CANCEL_SOCIAL_LOGIN,
+    payload: {network}
+  }
+}

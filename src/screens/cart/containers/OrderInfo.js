@@ -17,7 +17,7 @@ import {borderRadius, margin, padding} from 'src/components/config/spacing';
 
 const OrderLineItem = props => {
   const {name, quantity, total, theme, currency} = props;
-  
+
   return (
     <Row style={[
           styles.container,
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: borderRadius.large,
     marginBottom: 2 * margin.big,
+    marginTop: margin.base,
   },
   textMessage: {
     marginVertical: margin.large + 2,

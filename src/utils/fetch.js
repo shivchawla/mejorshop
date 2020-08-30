@@ -2,11 +2,14 @@ import {isImmutable} from "immutable";
 import lget from 'lodash/get';
 import globalConfig from './global';
 import configApi from '../config/api';
-import {PLUGIN_NAME} from  '../config/development';
+import {CART_PLUGIN_NAME} from  '../config/development';
 
 // import { fetch as fetchPolyfill } from 'whatwg-fetch'
 // global.fetch = fetchPolyfill
 
+const requireAuth = (url) => {
+    return url.indexOf(`/${CART_PLUGIN_NAME}`) === 0;
+}
 /**
  * Get method
  * @param url
@@ -18,16 +21,17 @@ const get = (url, options = {}) => {
 
         const isWC = url.indexOf('/wc') === 0 && url.indexOf('/wcfmmp') !== 0;
         const isQuery = url.indexOf('?') >= 0;
-        const isAuth = url.indexOf(`/${PLUGIN_NAME}`) === 0;
+        const isAuth = requireAuth(url);
 
         if (isWC) {
             baseURL = `${baseURL}${isQuery ? '&' : '?'}consumer_key=${configApi.CONSUMER_KEY}&consumer_secret=${configApi.CONSUMER_SECRET}`;
         }
 
+        // 'Cache-Control': 'no-cache, no-store, must-revalidate',
+        
         var headers = {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            // 'Cache-Control': 'no-cache, no-store, must-revalidate',
             Authorization: isAuth && globalConfig.getToken() ? `Bearer ${globalConfig.getToken()}` : undefined,
         }; 
 
@@ -44,6 +48,7 @@ const get = (url, options = {}) => {
         fetch(baseURL, {
             ...options,
             method: 'GET',
+            credentials: 'omit',
             headers,
         })
             .then((res) => res.json())
@@ -83,7 +88,7 @@ const post = (url, data, method = 'POST') => {
         const isWC = url.indexOf('/wc') === 0 && url.indexOf('/wcfmmp') !==0;
         const isDigits = url.indexOf('/digits') === 0;
         const isQuery = url.indexOf('?') >= 0;
-        const isAuth = url.indexOf(`/${PLUGIN_NAME}`) === 0;
+        const isAuth = requireAuth(url);
 
         if (isWC || isDigits) {
             baseURL = `${baseURL}${isQuery ? '&' : '?'}consumer_key=${configApi.CONSUMER_KEY}&consumer_secret=${configApi.CONSUMER_SECRET}`;
@@ -99,9 +104,11 @@ const post = (url, data, method = 'POST') => {
         // console.log(url.indexOf('/mobile-builder') === 0);
         // console.log(baseURL);
         // console.log(headers);
+        // console.log(data);
 
         fetch(baseURL, {
             method: method,
+            credentials: 'omit', 
             headers,
             body: isDigits ? data : typeof data === 'object' ? JSON.stringify(data) : null,
         })
@@ -122,13 +129,14 @@ const post = (url, data, method = 'POST') => {
             }
         })
         .catch((error) => {
+            // console.log("POST error");
             console.log(error);
             reject(error);
         });
     });
 };
 
-const remove = (url) => {
+const remove = (url, data = {}) => {
     return new Promise((resolve, reject) => {
 
         let baseURL = configApi.API_ENDPOINT + '/wp-json' + url;
@@ -136,18 +144,25 @@ const remove = (url) => {
         const isWC = url.indexOf('/wc') === 0 && url.indexOf('/wcfmmp') !== 0;
         const isDigits = url.indexOf('/digits') === 0;
         const isQuery = url.indexOf('?') >= 0;
-        const isAuth = url.indexOf(`/${PLUGIN_NAME}`) === 0;
+        const isAuth = requireAuth(url);
 
         if (isWC || isDigits) {
             baseURL = `${baseURL}${isQuery ? '&' : '?'}consumer_key=${configApi.CONSUMER_KEY}&consumer_secret=${configApi.CONSUMER_SECRET}`;
         }
 
+        // console.log("In DELETE");
+        // console.log(baseURL);
+        // console.log(data);
+
         fetch(baseURL, {
             method: 'DELETE',
+            credentials: 'omit',
             headers: {
                 Accept: 'application/json',
+               'Content-Type': 'application/json',
                 Authorization: isAuth && globalConfig.getToken() ? `Bearer ${globalConfig.getToken()}` : null,
             },
+            body: JSON.stringify(data)
         })
         .then((res) => {
             return res.json()

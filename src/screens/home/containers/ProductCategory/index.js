@@ -45,7 +45,7 @@ class ProductCategory extends React.Component {
   componentDidMount() {
     // this.fetchData();
     if (this.props.fields) {
-      this.fetchData();
+      this.fetchData(this.state.category_id, Math.min(3, this.state.per_page));
     }
   }
 
@@ -85,6 +85,11 @@ class ProductCategory extends React.Component {
             data,
             loading: false,
           });
+
+          if (data.length < this.state.per_page) {
+            setTimeout(() => this.fetchData(), 1000);
+          }
+
         } catch (error) {
           this.setState({
             loading: false,

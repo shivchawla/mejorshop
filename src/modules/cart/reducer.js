@@ -72,7 +72,7 @@ function cartReducer(state = initState, {type, payload}) {
 
     case Actions.GET_CART_SUCCESS:
       //Check what's payload
-      // console.log(payload.totals);
+      // console.log(payload.items);
       return state
         .set('line_items', fromJS(Object.values(payload.items)))
         .set('cart_totals', fromJS(payload.totals))

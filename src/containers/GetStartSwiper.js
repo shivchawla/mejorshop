@@ -12,10 +12,13 @@ import {Button, Text} from 'src/components';
 import Container from './Container';
 import Pagination from './Pagination';
 
-import {margin} from 'src/components/config/spacing';
+
+import {margin, padding} from 'src/components/config/spacing';
 
 const {width} = Dimensions.get('window');
 const WIDTH_IMAGE = width;
+const WIDTH_TEXT = Math.round(width) - 2*padding.large;
+console.log(WIDTH_TEXT);
 const HEIGHT_IMAGE = (WIDTH_IMAGE * 390) / 375;
 
 class GetStartSwiper extends React.Component {
@@ -101,7 +104,7 @@ class GetStartSwiper extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     },
     image: {
         width: WIDTH_IMAGE,
@@ -109,9 +112,12 @@ const styles = StyleSheet.create({
     },
     viewInfo: {
         marginVertical: margin.big + margin.small,
+        // justifyContent: 'center', 
+        // alignItems: 'center'
     },
     text: {
         textAlign: 'center',
+        width: WIDTH_TEXT,
     },
     title: {
         marginBottom: margin.small,

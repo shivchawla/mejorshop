@@ -40,7 +40,6 @@ const Style1 = ({category, goProducts}) => {
                     item.image && item.image.src
                       ? {
                         uri: item.image.src,
-                        cache: 'reload',
                       }
                       : noImage,
                   size: 60,

@@ -31,6 +31,8 @@ import {margin} from 'src/components/config/spacing';
 import {mainStack, homeTabs} from 'src/config/navigator';
 import {categorySelector} from 'src/modules/category/selectors';
 
+import {PER_PAGE} from 'src/config/product';
+
 const findCategory = (categoryId = '', lists = []) => {
   if (!categoryId || !lists || lists.length < 1) {
     return null;
@@ -114,7 +116,7 @@ class ProductsScreen extends React.Component {
     const query = Map({
       status: 'publish',
       lang: lang,
-      per_page: 4,
+      per_page: PER_PAGE,
       page: page,
     })
       .merge(sortBy.get('query'))
@@ -135,12 +137,12 @@ class ProductsScreen extends React.Component {
     try {
       const dataGet = await this.getData(page);
 
-      if (dataGet.length <= 4 && dataGet.length > 0) {
+      if (dataGet.length <= PER_PAGE && dataGet.length > 0) {
         this.setState(preState => {
           return {
             loading: false,
             refreshing: false,
-            loadingMore: dataGet.length === 4,
+            loadingMore: dataGet.length === PER_PAGE,
             data: page === 1 ? dataGet : concat(preState.data, dataGet),
           };
         });

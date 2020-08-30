@@ -1,6 +1,10 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
+import {compose} from 'redux';
+
+import {fromJS} from 'immutable';
+
 
 import {StyleSheet, View, FlatList, Dimensions, KeyboardAvoidingView, Platform} from 'react-native';
 import {ThemedView} from 'src/components';
@@ -10,7 +14,10 @@ import Payment from './containers/Payment';
 import Done from './containers/Done';
 
 import {fetchPaymentGateways, fetchShippingMethodsNotCoveredByZone} from 'src/modules/common/actions';
-import {getShippingMethods} from 'src/modules/checkout/actions';
+import {selectShippingAddress} from 'src/modules/cart/selectors';
+import {changeData} from 'src/modules/cart/actions';
+import {userSelector, shippingAddressSelector} from 'src/modules/auth/selectors';
+import {isShippingAddressValid, mergeOnlyEmpty} from 'src/utils/func';
 
 import {cartStack} from 'src/config/navigator';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
@@ -54,6 +61,20 @@ class CheckoutScreen extends React.Component {
             params: {}, // Param share all step
         };
         this.flatListRef = React.createRef();
+
+
+        //Update shipping with default user email
+        //Moved here..so that in Shipping step values are aready populated
+        const {dispatch, shippingInit, shipping} = this.props;
+
+        var shippingJS = shipping.toJS();
+        var shippingInitJS = shippingInit.toJS();
+
+        let shippingMerged = fromJS(mergeOnlyEmpty(shippingJS, shippingInitJS));
+        dispatch(changeData(['shipping'], shippingMerged));    
+        
+        dispatch(changeData(['shipping', "email"], this.props.user.get("user_email")));
+
     }
 
     componentDidMount() {
@@ -146,4 +167,14 @@ const styles = StyleSheet.create({
     },
 });
 
-export default connect()(CheckoutScreen);
+const mapStateToProps = state => ({
+    user: userSelector(state),
+    shipping: selectShippingAddress(state),
+    shippingInit: shippingAddressSelector(state),
+});
+
+export default compose(
+  connect(mapStateToProps),
+)(CheckoutScreen);
+
+// export default connect()(CheckoutScreen);

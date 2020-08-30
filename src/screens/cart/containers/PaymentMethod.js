@@ -141,13 +141,21 @@ class PaymentMethod extends React.Component {
     );
   };
 
+  paymentMethodTitle = (method) => {
+    if (method.id == 'pagalo') {
+      return 'Tarjeta de Crédito/Débito (GTQ)';
+    }
+
+    return method.title;
+  }
+
   // render payment method
   renderItem = ({item}) => {
     const {selected} = this.props;
     const topElement = (
       <Image source={icons[item.id]} style={{height: 30, marginTop: 4, marginBottom: 6}} resizeMode="stretch"/>
     );
-    const bottomElement = <Text medium>{item.title}</Text>;
+    const bottomElement = <Text medium>{this.paymentMethodTitle(item)}</Text>;
     return (
       <ChooseItem
         key={item.id}

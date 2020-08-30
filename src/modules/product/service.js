@@ -12,6 +12,10 @@ import {PLUGIN_NAME} from 'src/config/development';
 export const getProducts = (query, options = {}) =>
   request.get(`/wc/v3/products?${queryString.stringify(pickBy(query, item => item !== ""), { arrayFormat: 'comma' })}`, options);
 
+// export const getProducts = (query, options = {}) =>
+//   request.get(`/wcfmmp/v1/products?${queryString.stringify(pickBy(query, item => item !== ""), { arrayFormat: 'comma' })}`, options);
+
+
 /**
  * Fetch single product
  * @param id : product id
@@ -19,6 +23,9 @@ export const getProducts = (query, options = {}) =>
  */
 export const getSingleProduct = (id, lang) =>
   request.get(`/wc/v3/products/${id}?lang=${lang}`);
+
+// export const getSingleProduct = (id, lang) =>
+//   request.get(`/wcfmmp/v1/products/${id}?lang=${lang}`);
 
 /**
  * Fetch single blog

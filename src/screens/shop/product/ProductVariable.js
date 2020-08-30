@@ -1,5 +1,5 @@
 import React from 'react';
-import {Map} from 'immutable';
+import {fromJS, Map} from 'immutable';
 import {
   StyleSheet,
   View,

@@ -1,6 +1,7 @@
 import queryString from 'query-string';
 import request from 'src/utils/fetch';
 import {PLUGIN_NAME} from 'src/config/development';
+import {CART_PLUGIN_NAME} from 'src/config/development';
 
 /**
  * API login with email and password
@@ -49,7 +50,9 @@ export const updateCustomer = (user_id, data) =>
 export const getCustomer = user_id =>
   request.get(`/wc/v3/customers/${user_id}`);
 
-export const logout = () => request.get('users/logout');
+// export const logout = () => request.get('users/logout');
+
+export const logout = () => request.post(`/${CART_PLUGIN_NAME}/v1/logout`);
 
 export const isLogin = () => request.get('users/is-login');
 

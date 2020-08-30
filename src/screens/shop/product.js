@@ -4,6 +4,7 @@ import {compose} from 'recompose';
 import {fromJS, List, Map} from 'immutable';
 import {connect} from 'react-redux';
 import merge from 'lodash/merge';
+import lget from 'lodash/get';
 import unescape from 'lodash/unescape';
 
 import {showMessage} from 'react-native-flash-message';
@@ -55,7 +56,7 @@ import {fetchVendorDetail} from 'src/modules/vendor/actions';
 import {detailVendorSelector} from 'src/modules/vendor/selectors';
 
 const {height} = Dimensions.get('window');
-const HEADER_MAX_HEIGHT = height * 0.6;
+const HEADER_MAX_HEIGHT = height * 0.5;
 
 class Product extends Component {
   static navigationOptions = {
@@ -140,6 +141,7 @@ class Product extends Component {
 
   addToCart = () => {
     const {product, quantity, variation, meta_data} = this.state;
+
     const {dispatch} = this.props;
     let check = true;
 
@@ -158,15 +160,35 @@ class Product extends Component {
     }
     if (check) {
       this.setState({addingToCart: true});
+
+      let item = {product_id: product.get('id'), quantity};
+      
+      const variationJS = variation.toJS(); //Map.get is not working
+      const variation_id = lget(variationJS, 'id', null);
+
+
+      if(variation_id) {
+          
+        //Create variations for cocart
+        const vars = {};
+
+        variationJS.attributes.forEach(attr => {
+          var base_key = "attribute";
+          //Check for global 
+          if (attr.name == 'color' || attr.name == 'size' ) {
+            base_key = `${base_key}_pa`;
+          }
+
+          vars[`${base_key}_${attr.name}`] =  attr.option;
+
+        });
+
+        item = {...item, variation: vars, variation_id};
+      }
+
+
       dispatch(
-        addToCart(
-          {
-            product_id: product.get('id'),
-            quantity,
-            variation,
-            product,
-            meta_data,
-          },
+        addToCart(item,
           (output) => { 
             if (output.success) {
               this.setState({isAddToCart: true, addingToCart: false});
@@ -340,7 +362,7 @@ class Product extends Component {
           </Text>
           {this.showPrice()}
           
-          {configs.get('toggleShortDescriptionProduct') && product.get('short_description') ? (
+          {configs.get('toggleShortDescriptionProduct') && product.get('short_description').replace(/(<([^>]+)>)/gi, "") != '' ? (
             <View >
               <TextHtml
                 value={product.get('short_description')}

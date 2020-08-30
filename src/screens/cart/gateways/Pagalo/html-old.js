@@ -11,7 +11,7 @@ export default getHtML = (buttonText, processingDisplay, errorMessage) => `
   <!-- Styles -->
   <link href='https://fonts.googleapis.com/css?family=Jost:400,300,100' rel='stylesheet' type='text/css'>
   <style>
-    *{box-sizing:border-box}body,html{height:100%;min-height:100%}body{margin:0;background-color:#fff;font-family:'Jost',sans-serif}input::-webkit-input-placeholder {color:#777;font-weight:400;}input,select,button{font-family:'Jost',sans-serif; font-weight:400 !important;}.credit-card{width:360px;height:420px;margin:0px auto 0;border:0px solid #ddd;border-radius:6px;background-color:#fff;box-shadow:0px 0px 0px 0 rgba(0,0,0,.1)}.form-header{height:60px;padding:20px 30px 0;border-bottom:1px solid #e1e8ee}.form-body{height:340px;padding:30px 30px 20px}.title{margin:0;color:#5e6977;font-size:18px}.card-number,.cvv-input input,.month select,.paypal-btn,.proceed-btn,.year select{height:42px}.card-number,.cvv-input input,.month select,.year select{font-size:14px;line-height:14px}.card-number,.cvv-details,.cvv-input input,.month select,.year select{color:#000;opacity:1.0}.card-number{width:100%;margin-bottom:20px;padding-left:20px;border:2px solid #e1e8ee;border-radius:6px}.month select,.year select{-moz-appearance:none;-webkit-appearance:none;width:145px;margin-bottom:20px;padding-left:20px;border:2px solid #e1e8ee;border-radius:6px;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNiYmIiPjxwYXRoIGQ9Ik02IDlsNiA2IDYtNiIvPjwvc3ZnPg==) no-repeat;background-position:85% 50%}.month select{float:left}.year select{float:right}.cvv-input input{width:145px;float:left;padding-left:20px;border:2px solid #e1e8ee;border-radius:6px;background:#fff}.cvv-details{float:right;margin-bottom:20px;font-size:14px;font-weight:300;line-height:16px}.cvv-details p{margin-top:6px}.paypal-btn,.proceed-btn{cursor:pointer;width:100%;border-color:transparent;border-radius:6px;font-size:16px}.proceed-btn{margin-bottom:10px;background:#23282d}.paypal-btn a,.proceed-btn a{text-decoration:none;cursor:pointer}.proceed-btn a{color:#fff}.paypal-btn a{color:rgba(242,242,242,.7)}.paypal-btn{padding-right:95px;background:url(paypal-logo.svg) no-repeat 65% 56% #009cde}
+    *{box-sizing:border-box}body,html{height:100%;min-height:100%}body{margin:0;background-color:#ddd;font-family:'Jost',sans-serif}input::-webkit-input-placeholder {color:#777;font-weight:400;}input,select,button{font-family:'Jost',sans-serif; font-weight:400 !important;}.credit-card{width:360px;height:420px;margin:60px auto 0;border:1px solid #ddd;border-radius:6px;background-color:#fff;box-shadow:1px 2px 3px 0 rgba(0,0,0,.1)}.form-header{height:60px;padding:20px 30px 0;border-bottom:1px solid #e1e8ee}.form-body{height:340px;padding:30px 30px 20px}.title{margin:0;color:#5e6977;font-size:18px}.card-number,.cvv-input input,.month select,.paypal-btn,.proceed-btn,.year select{height:42px}.card-number,.cvv-input input,.month select,.year select{font-size:14px;line-height:14px}.card-number,.cvv-details,.cvv-input input,.month select,.year select{color:#000;opacity:1.0}.card-number{width:100%;margin-bottom:20px;padding-left:20px;border:2px solid #e1e8ee;border-radius:6px}.month select,.year select{-moz-appearance:none;-webkit-appearance:none;width:145px;margin-bottom:20px;padding-left:20px;border:2px solid #e1e8ee;border-radius:6px;background:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIyNSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9IiNiYmIiPjxwYXRoIGQ9Ik02IDlsNiA2IDYtNiIvPjwvc3ZnPg==) no-repeat;background-position:85% 50%}.month select{float:left}.year select{float:right}.cvv-input input{width:145px;float:left;padding-left:20px;border:2px solid #e1e8ee;border-radius:6px;background:#fff}.cvv-details{float:right;margin-bottom:20px;font-size:14px;font-weight:300;line-height:16px}.cvv-details p{margin-top:6px}.paypal-btn,.proceed-btn{cursor:pointer;width:100%;border-color:transparent;border-radius:6px;font-size:16px}.proceed-btn{margin-bottom:10px;background:#23282d}.paypal-btn a,.proceed-btn a{text-decoration:none;cursor:pointer}.proceed-btn a{color:#fff}.paypal-btn a{color:rgba(242,242,242,.7)}.paypal-btn{padding-right:95px;background:url(paypal-logo.svg) no-repeat 65% 56% #009cde}
   </style> 
 
    <style>
@@ -79,7 +79,6 @@ export default getHtML = (buttonText, processingDisplay, errorMessage) => `
 </head>
 
 <body>
-
     <form class="credit-card" id="checkoutFormPagalo">
       <div class="overlay-spinner" style="display: ${processingDisplay}">
           <div class="spinner">
@@ -87,11 +86,6 @@ export default getHtML = (buttonText, processingDisplay, errorMessage) => `
             <div class="dot2"></div>
           </div>
       </div>
-
-      <div style="text-align: center; margin-top:10px; margin-bottom: 40px;">
-        <img style="width: 100px;" src="https://mejorshop.com/wp-content/uploads/2020/08/visaMaster.png">
-        <p>Pago con Tarjeta de Débito/Crédito (GTQ)</p> 
-      </div>  
 
       <div class="form-body">
         <div class="card-error" style="
@@ -138,6 +132,9 @@ export default getHtML = (buttonText, processingDisplay, errorMessage) => `
       </div>
     </form>
 
+    <div style="text-align: center; margin-top: 50px">
+      <img style="width: 100px;" src="https://staging.mejorshop.com/wp-content/uploads/2020/08/pagalo_org.png">
+    </div>
 
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 
@@ -163,10 +160,15 @@ export default getHtML = (buttonText, processingDisplay, errorMessage) => `
         return false;
       }) 
 
+      // $('#ccNo').on('keypress change', function () {
+      //   $(this).val(function (index, value) {
+      //     return value.replace(/\W/gi, '').replace(/(.{4})/g, '$1 ');
+      //   });
+      // });
 
       $('#ccNo').on('keypress change', function () {
         $(this).val(function (index, value) {
-          return value.replace(/[^0-9]/g, "").replace(/\W/gi, '').replace(/(.{4})/g, '$1 ').trim();
+          return value.replace(/[^0-9]/g, "").replace(/\W/gi, '').replace(/(.{4})/g, '$1 ');
         });
       });
 

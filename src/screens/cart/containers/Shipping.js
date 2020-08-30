@@ -23,6 +23,8 @@ import {changeData, updateShippingLines} from 'src/modules/cart/actions';
 import {isLoginSelector, userSelector} from 'src/modules/auth/selectors';
 import {validatorAddress} from 'src/modules/cart/validator';
 
+import {countrySelector} from 'src/modules/common/selectors';
+
 import {margin, padding} from 'src/components/config/spacing';
 import {calcCost} from 'src/utils/product';
 import {isShippingAddressValid} from 'src/utils/func';
@@ -40,11 +42,6 @@ class Shipping extends React.Component {
       loadingMethods: true,
       loadingMethodsError: false,
     };
-
-    //Update shipping with default user email
-    dispatch(changeData(['shipping', "email"], this.props.user.get("user_email")));
-    dispatch(changeData(['shipping', "first_name"], this.props.user.get("first_name")));
-    dispatch(changeData(['shipping', "last_name"], this.props.user.get("last_name")));
 
   }
 
@@ -149,8 +146,46 @@ class Shipping extends React.Component {
     } 
   }
 
+  getCountryName = (code) => {
+    const {countries} = this.props;
+    const allCountries = countries.toJS().data;
+
+    var idx = allCountries.findIndex(item => item.code == code);
+    if (idx != -1) {
+      const country = allCountries[idx].name;
+      // console.log(country);
+      return country;
+    }
+
+    return code;
+
+  }
+
+  getStateName = (cc, sc) => {
+    const {countries} = this.props;
+    const allCountries = countries.toJS().data;
+
+    var ccIdx = allCountries.findIndex(item => item.code == cc);
+    if (ccIdx != -1) {
+      const states = allCountries[ccIdx].states;
+      
+      var scIdx = states.findIndex(item => item.code == sc);
+
+      if(scIdx != -1) {
+        return states[scIdx].name;
+      }
+
+    }
+
+    return sc;
+
+  }
+
   showShippingAddress = () => {
     const {shipping} = this.props;
+
+    // this.getCountryName(shipping.get('country'));
+    // this.getStateName(shipping.get('country'), shipping.get('state'));
 
     return (
       <>
@@ -160,17 +195,23 @@ class Shipping extends React.Component {
         <Text colorThird style={styles.textBilling}>
           {shipping.get('address_1')}
         </Text>
+        {shipping.get('address_2') && shipping.get('address_2') != '' ? 
+          (<Text colorThird style={styles.textBilling}>
+            {shipping.get('address_2')}
+          </Text>): null
+        }
+
         <Text colorThird style={styles.textBilling}>
           {shipping.get('city')}
         </Text>
         <Text colorThird style={styles.textBilling}>
-          {shipping.get('postcode')}
+          {   this.getStateName(shipping.get('country'), shipping.get('state'))} - {shipping.get('postcode')}
         </Text>
-        <Text colorThird style={styles.textBilling}>
+        {/*<Text colorThird style={styles.textBilling}>
           {shipping.get('country')}
-        </Text>
+        </Text>*/}
         <Text colorThird style={styles.textBilling}>
-          {shipping.get('phone')}
+          Tel: {shipping.get('phone')}
         </Text>
       </>
     );
@@ -318,6 +359,7 @@ const mapStateToProps = state => ({
   shipping: selectShippingAddress(state),
   shippingInit: shippingAddressSelector(state),
   isLogin: isLoginSelector(state),
+  countries: countrySelector(state),
   user: userSelector(state),
 });
 

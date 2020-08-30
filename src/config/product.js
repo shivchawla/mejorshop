@@ -34,3 +34,6 @@ export const colProductLayout= {
   grid: 2,
   list: 1,
 };
+
+
+export const PER_PAGE = 6;

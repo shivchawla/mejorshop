@@ -233,6 +233,7 @@ function* signInWithFacebookSaga({ payload }) {
   try {
     const { data } = payload;
     const { token, user } = yield call(loginWithFacebook, data);
+
     yield call(doLoginSuccess, token, user);
   } catch (e) {
     yield call(handleError, e);
@@ -371,7 +372,7 @@ function* signOutSaga() {
     if (requiredLogin) {
       yield call(NavigationService.navigate, rootSwitch.auth);
     }
-    // yield call(logout);
+    yield call(logout);
     yield put({ type: Actions.SIGN_OUT_SUCCESS });
     // yield call(
     //   navigationService.navigate,

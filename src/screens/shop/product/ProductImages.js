@@ -77,7 +77,7 @@ class ProductImages extends Component {
         style={styles.viewImage}
         onPress={() => this.setState({visible: true})}>
         <Image
-          source={{uri: item.src, cache: 'reload'}}
+          source={{uri: item.src}}
           resizeMode="cover"
           style={{height: height, width: width}}
           PlaceholderContent={<ActivityIndicator />}

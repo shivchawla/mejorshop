@@ -75,7 +75,7 @@ const ItemDefault = React.memo(props => {
         <Image
           source={
             images && images.length
-              ? {uri: images[0].shop_single, cache: 'reload'}
+              ? {uri: images[0].shop_single}
               : require('src/assets/images/pDefault.png')
           }
           style={productItemImageStyle}

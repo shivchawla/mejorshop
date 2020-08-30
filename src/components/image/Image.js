@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Animated, Image as RNImage, Platform, StyleSheet, View } from 'react-native';
+import { Animated, Image as RNImageOld, Platform, StyleSheet, View } from 'react-native';
+
+import RNImage from 'react-native-fast-image';
 
 import { nodeType } from '../helpers';
 import { ViewPropTypes, withTheme } from '../config';
@@ -97,7 +99,7 @@ Image.propTypes = {
   ImageComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   PlaceholderContent: nodeType,
   containerStyle: ViewPropTypes.style,
-  placeholderStyle: RNImage.propTypes.style,
+  placeholderStyle: RNImage.style,
 };
 
 Image.defaultProps = {

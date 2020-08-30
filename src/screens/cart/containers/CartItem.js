@@ -1,5 +1,7 @@
 import React from 'react';
 import split from 'lodash/split';
+import get from 'lodash/get';
+
 
 import {fromJS} from 'immutable';
 import unescape from 'lodash/unescape';
@@ -15,10 +17,10 @@ import {sizes, lineHeights} from 'src/components/config/fonts';
 import currencyFormatter from 'src/utils/currency-formatter';
 
 class CartItem extends React.Component {
-  onChange = quantity => {
-    const {changeQuantity, item} = this.props;
-    changeQuantity(item, quantity);
-  };
+  // onChange = quantity => {
+  //   const {changeQuantity, item} = this.props;
+  //   changeQuantity(item, quantity);
+  // };
 
   renderVariation = (item, index) => {
     return (
@@ -51,11 +53,21 @@ class CartItem extends React.Component {
       quantity,
       line_subtotal,
       line_total,
-      variation: {attributes},
-      vendor
+      variation,
+      variation_data,
+      product_image,
+      vendor, 
+      gallery
     } = item;
 
-    const image = thumbnail || this.getUrlImage(thumbnail);
+    //Hiding attributes..it's present in the name
+    // const attributes = Object.keys(variation_data).map(key => { 
+    //   return {name: key, option: variation_data[key]}
+    // });
+
+    const attributes = null;
+
+    const image = product_image || thumbnail;
 
     return (
       <Row

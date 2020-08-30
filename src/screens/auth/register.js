@@ -222,12 +222,12 @@ class RegisterScreen extends React.Component {
                 onChangeText={(value) => this.changeData({last_name: value})}
                 error={errors && errors.last_name}
               />
-              <Input
+              {/*<Input
                 label={t('auth:text_input_user')}
                 value={name}
                 onChangeText={(value) => this.changeData({name: value})}
                 error={errors && errors.name}
-              />
+              />*/}
               {enablePhoneNumber ? (
                 <InputMobile
                   value={phone_number}

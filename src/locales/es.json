@@ -191,12 +191,12 @@
     "text_shipping_store": "{{name}} Envío"
   },
   "getting": {
-    "text_title_1": "COMPRA ONLINE",
-    "text_title_2": "MARKETPLACE",
-    "text_title_3": "TU APOYO ES VITAL",
-    "text_subtitle_1": "Ahorra tiempo comprando en línea., fácil, rápido y seguro",
-    "text_subtitle_2": "Cada empresa que vende en mejorShop es responsable de tu orden",
-    "text_subtitle_3": "Al comprar  en mejorShop apoyas los negocios de  grandes emprendedores"
+    "text_title_1": "Compra Online",
+    "text_title_2": "Marketplace",
+    "text_title_3": "Tu apoyo es vital",
+    "text_subtitle_1": "Ahorra tiempo comprando en línea. Fácil, rápido y seguro.",
+    "text_subtitle_2": "Cada empresa que vende en mejorShop es responsable de tu orden.",
+    "text_subtitle_3": "Al comprar en mejorShop apoyas los negocios de grandes emprendedores."
   },
   "profile": {
     "text_hello": "Hola, {{name}}",

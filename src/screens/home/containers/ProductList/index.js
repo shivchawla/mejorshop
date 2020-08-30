@@ -54,7 +54,6 @@ class ProductList extends Component {
     const type = getType(props.fields);
     const per_page = props.fields && props.fields.limit ? props.fields.limit : 4;
     const include = getInclude(props.fields);
-
     this.state = {
       data: [],
       loading: false,
@@ -93,7 +92,7 @@ class ProductList extends Component {
     }
   };
 
-  fetchData = () => {
+  fetchData = (full = false) => {
     const { per_page, include } = this.state;
 
     const { language } = this.props;
@@ -111,10 +110,12 @@ class ProductList extends Component {
             per_page,
           };
           const data = await getProducts(query);
+          
           this.setState({
-            data,
+            data:[],
             loading: false,
           });
+
         } catch (error) {
           this.setState({
             loading: false,
