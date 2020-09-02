@@ -156,7 +156,7 @@
                   "heading":{
                      "text":{
                         "en":"60% OFF",
-                        "es":"Bebes y Niños"
+                        "es":"Ropa"
                      },
                      "style":{
                         "color":"#ffffff"
@@ -174,12 +174,12 @@
                   },
                   "action":{
                      "type":"category",
-                     "id":"152"
+                     "id":"149"
                   },
                   "title":{
                      "text":{
                         "en":"Clothing",
-                        "es":"Zapatos"
+                        "es":"Kimonos"
                      },
                      "style":{
                         "color":"#ffffff"
@@ -188,7 +188,7 @@
                   "subTitle":{
                      "text":{
                         "en":"New",
-                        "es":"Juguetes y"
+                        "es":"Blusas y"
                      },
                      "style":{
                         "color":"#ffffff"
@@ -196,7 +196,7 @@
                   },
                   "id":"3",
                   "image":{
-                     "es":"https://mejorshop.com/wp-content/uploads/2020/08/Kids-Homepage-1.png"
+                     "es":"https://mejorshop.com/wp-content/uploads/2020/08/Ropa-Homepage-1.png"
                   }
                },
                {
@@ -215,7 +215,7 @@
                   },
                   "subTitle":{
                      "text":{
-                        "es":"Usados"
+                        "es":"Usados y"
                      },
                      "style":{
                         "color":"#ffffff"
@@ -223,7 +223,7 @@
                   },
                   "title":{
                      "text":{
-                        "es":"Libros"
+                        "es":"Nuevos"
                      },
                      "style":{
                         "color":"#ffffff"

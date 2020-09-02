@@ -83,7 +83,7 @@ class Style2 extends React.Component {
                       onPress={() => goProducts(item)}
                     >
                       <Image
-                        source={item && item.image && item.image.src ? {uri: item.image.src} : noImage}
+                        source={item && item.image && item.image.src ? {uri: item.image.src, headers: {Accept: 'image/webp'}} : noImage}
                         style={{
                           width: sizeItem,
                           height: sizeItem,

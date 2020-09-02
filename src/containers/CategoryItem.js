@@ -57,6 +57,7 @@ const CategoryItem = (props: Props) => {
             item && item.image && item.image.src
               ? {
                 uri: item.image.src,
+                headers: {Accept: 'image/webp'}
               }
               : imgCateDefault
           }

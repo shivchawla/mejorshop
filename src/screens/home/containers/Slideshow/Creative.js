@@ -64,7 +64,7 @@ class SlideshowCreative extends React.Component {
                 ImageComponent={ImageBackground}
                 source={
                   item.image && item.image[language]
-                    ? { uri: item.image[language] }
+                    ? { uri: item.image[language], headers: {Accept: 'image/webp'} }
                     : require('src/assets/images/pDefault.png')
                 }
                 style={[styles.viewImage, styleImage]}

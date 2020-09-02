@@ -38,7 +38,7 @@ const Item2 = ({item, width, height, navigationType, style, theme, navigation}) 
       <Image
         source={
           images && images.length
-            ? { uri: images[0].shop_single }
+            ? { uri: images[0].shop_single, headers: {Accept: 'image/webp'} }
             : require('src/assets/images/pDefault.png')
         }
         style={productItemImageStyle}

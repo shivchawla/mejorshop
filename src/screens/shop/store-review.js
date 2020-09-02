@@ -104,7 +104,7 @@ class StoreReview extends React.Component {
                 <Image
                   source={
                     vendorDetail.get('vendor_shop_logo')
-                      ? {uri: vendorDetail.get('vendor_shop_logo')}
+                      ? {uri: vendorDetail.get('vendor_shop_logo'), headers: {Accept: 'image/webp'}}
                       : require('src/assets/images/pDefault.png')
                   }
                   resizeMode="stretch"

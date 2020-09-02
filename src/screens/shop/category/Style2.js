@@ -96,7 +96,7 @@ class Style2 extends React.Component {
                   <Image
                     source={
                       item && item.image && item.image.src
-                        ? {uri: item.image.src}
+                        ? {uri: item.image.src, headers: {Accept: 'image/webp'}}
                         : noImage
                     }
                     style={styles.image}

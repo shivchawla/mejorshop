@@ -109,10 +109,11 @@ class ProductList extends Component {
             include: take(include, per_page),
             per_page,
           };
+
           const data = await getProducts(query);
-          
+            
           this.setState({
-            data:[],
+            data,
             loading: false,
           });
 

@@ -79,7 +79,7 @@ class CartItem extends React.Component {
           },
           style && style,
         ]}>
-        <Image source={{uri: image}} style={styles.image} />
+        <Image source={{uri: image, headers: {Accept: 'image/webp'}}} style={styles.image} />
 
         <Col style={styles.content}>
           <View>

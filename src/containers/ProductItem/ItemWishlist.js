@@ -67,7 +67,7 @@ const ItemWishlist = React.memo(props => {
         <Image
           source={
             images && images[0]
-              ? {uri: images[0].shop_single}
+              ? {uri: images[0].shop_single, headers: {Accept: 'image/webp'}}
               : require('src/assets/images/pDefault.png')
           }
           resizeMode="stretch"

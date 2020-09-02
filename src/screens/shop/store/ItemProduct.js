@@ -55,7 +55,7 @@ const ItemProduct = React.memo( props => {
           <Image
             source={
               images && images.length
-                ? {uri: images[0].src}
+                ? {uri: images[0].src, headers: {Accept: 'image/webp'}}
                 : require('src/assets/images/pDefault.png')
             }
             style={styles.image}

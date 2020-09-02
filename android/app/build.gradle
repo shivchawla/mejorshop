@@ -144,7 +144,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.rn_oreo"
+        applicationId "com.mejorshop.rnapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionName "1.0.0"

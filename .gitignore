@@ -71,3 +71,7 @@ yarn.lock
 android/app/src/main/res/drawable.rar
 android/app/debug.keystore.old
 android/app/debug.keystore_myold
+android/app/google-servicesWorkedButRnOreoPkgName.json
+Builds/Android/app-release.aab
+Builds/Android/app-release.aab_SDK28
+package-lock.json

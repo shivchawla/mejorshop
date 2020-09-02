@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:766193070271:android:ef12fd613e3150614dd60a",
+        "mobilesdk_app_id": "1:766193070271:android:a8f8ffecc2ebcb014dd60a",
         "android_client_info": {
-          "package_name": "com.rn_oreo"
+          "package_name": "com.mejorshop.rnapp"
         }
       },
       "oauth_client": [
@@ -21,7 +21,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCijVLQ1XjRnOGP0uqz_DW88XHPq4H7kUI"
+          "current_key": "AIzaSyDc-W30cZPVrb7WlHqy16SJliaulYTaOI0"
         }
       ],
       "services": {
@@ -30,6 +30,13 @@
             {
               "client_id": "766193070271-mi68pts3vjneu4r6vctp6d3lrp04kl23.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "766193070271-6hdqb0om2b4s08o7fd0fe7lgd9jlo39e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mejorshop.rnapp"
+              }
             }
           ]
         }
