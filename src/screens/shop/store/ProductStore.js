@@ -13,7 +13,7 @@ import ModalFilter from './ModalFilter';
 import {green} from 'src/components/config/colors';
 import {padding, margin} from 'src/components/config/spacing';
 import {getProductsByVendorId} from 'src/modules/vendor/service';
-import {prepareProductItem} from 'src/utils/product';
+import {prepareProductItem, findCategory} from 'src/utils/product';
 import {
   columnProductSelector,
   currencySelector,
@@ -33,7 +33,7 @@ const widthImage = (col = 1) => {
   return (widthFlatList - widthDistantImage) / col;
 };
 const heightImage = (w = 168) => {
-  return (w * 200) / 168;
+  return w; //(w * 200) / 168;
 };
 
 class ProductStore extends Component {
@@ -47,15 +47,12 @@ class ProductStore extends Component {
       page: 1,
       sortBy: {},
       isModalRefine: false,
+      category: ''
     };
   }
   componentDidMount() {
     this.fetchProducts();
-
-    // const {store} = this.props;
-    // if (store && store.vendor_id) {
-    //   dispatch(fetchVendorDetail(store.vendor_id))
-    // }
+    // this.fetchCategories();
   }
   getData = (vendor_id, page) => {
     const {lang} = this.props;
@@ -72,6 +69,10 @@ class ProductStore extends Component {
     });
     return getProductsByVendorId(vendor_id, query.toJS());
   };
+
+  // fetchCategories = async () => {
+  //   get_store_taxonomies
+  // // }
 
   fetchProducts = async (page = this.state.page) => {
     try {
@@ -151,8 +152,8 @@ class ProductStore extends Component {
   };
 
   render() {
-    const {loading, refreshing, data, sortBy, isModalRefine} = this.state;
-    const {column, currency, defaultCurrency, days} = this.props;
+    const {loading, refreshing, data, sortBy, isModalRefine, category} = this.state;
+    const {column, currency, defaultCurrency, days, navigation} = this.props;
     const dataPrepare = data.map(item =>
       prepareProductItem(item, currency, defaultCurrency, days),
     );

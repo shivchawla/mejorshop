@@ -64,6 +64,8 @@ const ItemDefault = React.memo(props => {
   };
   const listStatus = ['instock', 'onbackorder'];
 
+  const out_of_stock = stock_status == 'outofstock';
+
   return (
     <TouchableOpacity
       delayPressIn={150}
@@ -91,9 +93,15 @@ const ItemDefault = React.memo(props => {
                   containerStyle={styles.badge}
                 />
               ) : null}
-              {on_sale ? (
+              
+              {on_sale && !out_of_stock ? (
                 <Badge value={t('common:text_sale')} status="warning" />
               ) : null}
+              
+              {out_of_stock ? (
+                <Badge value={t('common:text_outofstock')} status="error" />
+              ) : null}
+
             </View>
             <WishListIcon product_id={id} />
           </View>

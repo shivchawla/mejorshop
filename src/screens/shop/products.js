@@ -33,26 +33,7 @@ import {categorySelector} from 'src/modules/category/selectors';
 
 import {PER_PAGE} from 'src/config/product';
 
-const findCategory = (categoryId = '', lists = []) => {
-  if (!categoryId || !lists || lists.length < 1) {
-    return null;
-  }
-  var loopWhile = true;
-
-  var category = null;
-  var listFlat = lists;
-
-  while(loopWhile && listFlat.length > 0) {
-    const categoryFind = find(listFlat, c => c.id == categoryId);
-    if (categoryFind) {
-      category = categoryFind;
-      loopWhile = false;
-    } else {
-      listFlat = compact(flatMap(listFlat, ca => ca.categories));
-    }
-  }
-  return category;
-};
+import {findCategory} from 'src/utils/product';
 
 class ProductsScreen extends React.Component {
   static navigationOptions = {
@@ -66,6 +47,8 @@ class ProductsScreen extends React.Component {
       screenProps: {t},
       categories,
     } = props;
+
+    console.log(categories);
 
     const categoryId = navigation.getParam('id', '');
     const category = findCategory(categoryId, categories);

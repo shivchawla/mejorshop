@@ -170,7 +170,7 @@ class ShippingAddress extends React.Component {
           <Row style={styles.row}>
             <Col>
               <Input
-                label={'NIT'}
+                label={'NIT (opcional)'}
                 value={meta_data['_billing_wooccm12']}
                 onChangeText={value => this.handleChange('nit', value)}
                 onEndEditing={(e) => this.updateValue('nit', e.nativeEvent.text)}

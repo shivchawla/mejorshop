@@ -199,7 +199,7 @@ class CartScreen extends React.Component {
           renderHiddenItem={({item}) => (
             <View style={styles.viewButton}>
               {configs.get('toggleWishlist') && <ButtonSwiper {...this.getHandleWishList(item.product_id)} />}
-              <ButtonSwiper onPress={() => dispatch(removeFromCart(item))} />
+              <ButtonSwiper onPress={() => this.notificationDeleteItem(item.key)} />
             </View>
           )}
           leftOpenValue={widthButton}

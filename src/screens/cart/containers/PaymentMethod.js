@@ -6,7 +6,7 @@ import {fromJS} from 'immutable';
 import merge from 'lodash/merge';
 
 import {View, Image, Dimensions, FlatList, ScrollView, StyleSheet} from 'react-native';
-import {Text, Modal, withTheme} from 'src/components';
+import {Text, Modal, withTheme, Loading} from 'src/components';
 import ChooseItem from 'src/containers/ChooseItem';
 import TextHtml from 'src/containers/TextHtml';
 import Stripe from 'src/screens/cart/gateways/Stripe';
@@ -19,7 +19,7 @@ import {paymentGatewaysSelector, currencySelector, defaultCurrencySelector} from
 import {changeData, clearCart} from 'src/modules/cart/actions';
 import {selectedPaymentMethod} from 'src/modules/cart/selectors';
 import {selectOrder, selectOrderPending, selectUpdateOrderPending} from 'src/modules/order/selectors';
-import {paymentStripe, paymentPagalo} from 'src/modules/order/service';
+import {paymentStripe, paymentPagalo, updateOrder} from 'src/modules/order/service';
 
 import {margin, padding} from 'src/components/config/spacing';
 import {lineHeights} from 'src/components/config/fonts';
@@ -47,6 +47,7 @@ class PaymentMethod extends React.Component {
     super(props, context);
     this.state = {
       visible: false,
+      loading: false,
     };
   }
 
@@ -58,7 +59,8 @@ class PaymentMethod extends React.Component {
 
     // Direct bank transfer
     if (method.get('id') === 'bacs') {
-      dispatch(changeData(['status'], 'on-hold'));
+      // dispatch(changeData(['status'], 'on-hold'));
+      dispatch(changeData(['status'], 'pending'));
 
     // Cash on delivery
     } else if (method.get('id') === 'cod') {
@@ -97,9 +99,29 @@ class PaymentMethod extends React.Component {
   };
 
   handleNext = () => {
-    this.setModalVisible(false);
-    this.handleConfirm();
+    // this.setModalVisible(false);
+    // this.handleConfirm();
+
+    //Becuase COD is not valid...just handle the Bank Transfer
+    //We need to handle this and modify the status to 'on-hold' to make sure
+    //client receives email only on confirming order.
+    this.setState({loading: true});
+    this.handleBankTransfer()
   };
+
+  handleBankTransfer = () => {
+    const {order} = this.props;
+    return updateOrder(order.get('id'), {status: 'on-hold'})
+    .then(res => {
+      // this.setModalVisible(false);
+      this.setState({visible: false, loading: false})
+      this.handleConfirm();
+    })
+    .catch(err => {
+      console.log(err);
+      console.log("Bank transfer went bad!!");
+    })
+  }
 
   handlePaymentProgress = ({method, data}) => {
     const {order} = this.props;
@@ -170,7 +192,7 @@ class PaymentMethod extends React.Component {
   };
 
   render() {
-    const {visible} = this.state;
+    const {visible, loading} = this.state;
     const {paymentGateway, selected, theme} = this.props;
 
     const methods = paymentGateway
@@ -182,6 +204,7 @@ class PaymentMethod extends React.Component {
 
     return (
       <>
+        <Loading visible={loading} />
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {methods.map(item => this.renderItem({item}))}
         </ScrollView>

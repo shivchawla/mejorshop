@@ -34,7 +34,8 @@ class ListOrder extends React.Component {
       language,
     } = this.props;
     const {page} = this.state;
-    const URL = `/wc/v3/orders?page=${page}&per_page=10&customer=${user.ID}&lang=${language}`;
+    const allowedStatus = 'processing,on-hold,completed,cancelled,refunded,failed';
+    const URL = `/wc/v3/orders?page=${page}&per_page=10&customer=${user.ID}&lang=${language}&status=${allowedStatus}`;
     // const URL = `/wc/v3/orders?page=${page}&per_page=10`;
     fetch.get(URL)
       .then(data => {

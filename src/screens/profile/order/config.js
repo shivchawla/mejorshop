@@ -43,6 +43,6 @@ export const objectStatus = (status = 'completed') => {
   return {
     icon: 'clock',
     color: yellow,
-    text : status == "pending" ? 'En Espera' : text,
+    text : status == "pending" ? 'Pendiente de Pago' : 'En Espera',
   };
 };

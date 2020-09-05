@@ -55,11 +55,11 @@ class ProductImages extends Component {
         {
           message: message,
           url: url,
-          title: 'Share',
+          title: 'Compartir',
         },
         {
           // // Android only:
-          dialogTitle: 'Oreo product',
+          dialogTitle: 'MejorShop',
           // // iOS only:
           // excludedActivityTypes: [
           //   'com.apple.UIKit.activity.PostToTwitter'

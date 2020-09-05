@@ -31,6 +31,27 @@ class ModalFilter extends React.PureComponent {
     this.props.handleSort(this.state.selectValue);
   };
 
+  renderCategory = item => {
+    const { filterBy } = this.props;
+    const chevron =
+      item.id === filterBy.get('category')
+        ? {
+            name: 'check',
+            size: 18,
+          }
+        : true;
+    return (
+      <ListItem
+        key={item.id}
+        title={unescape(item.name)}
+        type="underline"
+        small
+        chevron={chevron}
+        onPress={() => this.selectItem(item.id)}
+      />
+    );
+  };
+
   render() {
     const {visible, setModalVisible, t} = this.props;
     const {selectValue} = this.state;
@@ -90,6 +111,14 @@ class ModalFilter extends React.PureComponent {
                 />
               ))}
             </Container>
+
+          {/*<Container>
+              <Text h3 medium style={styles.textSort}>
+                {t('catalog:text_cateory')}
+              </Text>
+            {categories.length > 0 && categories.map(item => this.renderCategory(item))}
+          </Container>*/}
+
           </ScrollView>
           <Container style={{marginVertical: 26}}>
             <Button title={t('catalog:text_result')} onPress={this.goResult} />

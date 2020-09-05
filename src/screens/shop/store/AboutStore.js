@@ -59,7 +59,7 @@ const getAddress = (address, countries) => {
 };
 
 const typeSocial = {
-  fb: 'facebook',
+  facebook: 'facebook',
   gplus: 'google-plus-official',
   youtube: 'youtube',
   twitter: 'twitter',
@@ -87,10 +87,11 @@ class AboutStore extends React.Component {
     if (!store) {
       return null;
     }
-    const {vendor_address, social, about} = store;
+    const {vendor_address, vendor_email, vendor_phone, social, about} = store;
+
     // const countries = country.get('data').toJS();
 
-    const addressStr = store.vendor_address;
+    // const addressStr = store.vendor_address;
     // getAddress(address, countries);
     // console.log(about);
 
@@ -102,36 +103,39 @@ class AboutStore extends React.Component {
           {/*  style={{width: widthImage, height: heightImage, marginBottom: margin.big + 7}}/>*/}
           <View>
             <TextHtml value={about}/>
-            <View style={styles.viewRowInfo}>
+            {vendor_address && vendor_address != '' && (<View style={styles.viewRowInfo}>
               <Icon
                 name={'map'}
                 size={16}
                 containerStyle={styles.iconInfo}
                 color={grey4}
               />
-              <Text>{addressStr}</Text>
-            </View>
-            <View style={styles.viewRowInfo}>
+              <Text>{vendor_address}</Text>
+            </View>)}
+
+            {vendor_phone && vendor_phone != '' && (<View style={styles.viewRowInfo}>
               <Icon
                 name="phone-call"
                 size={16}
                 containerStyle={styles.iconInfo}
                 color={grey4}
               />
-              <Text>{store.vendor_phone}</Text>
-            </View>
-            <View style={styles.viewRowInfo}>
+              <Text>{vendor_phone}</Text>
+            </View>)}
+
+            {vendor_email && vendor_email != '' && (<View style={styles.viewRowInfo}>
               <Icon
                 name="mail"
                 size={16}
                 containerStyle={styles.iconInfo}
                 color={grey4}
               />
-              <Text>{store.vendor_email}</Text>
-            </View>
+              <Text>{vendor_email}</Text>
+            </View>)}
+
           </View>
           <View style={styles.viewSocial}>
-            {Object.keys(social).map((key, index) =>
+            {Object.keys(social || {}).map((key, index) =>
               social[key] ? (
                 <SocialIcon
                   key={key}
@@ -161,7 +165,7 @@ const styles = StyleSheet.create({
   },
   viewRowInfo: {
     flexDirection: 'row',
-    marginBottom: margin.large + 4,
+    marginBottom: margin.base,
     marginTop: margin.big, 
   },
   iconInfo: {

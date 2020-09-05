@@ -51,9 +51,9 @@ const OrderInfo = props => {
 
   if (progressPayment) {
     message = t('cart:text_payment_message');
-  } else if ('cod') {
+  } else if (selected === 'cod') {
     message = t('cart:text_payment_message_cod');
-  } else if ('bacs') {
+  } else if (selected === 'bacs') {
     message = t('cart:text_payment_message_bacs');
   }
 
