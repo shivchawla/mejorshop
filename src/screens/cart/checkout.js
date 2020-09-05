@@ -130,7 +130,6 @@ class CheckoutScreen extends React.Component {
         return (
             <ThemedView isFullView style={styles.container}>
                 <Steps data={steps} current={current} style={styles.tabBar}/>
-                <KeyboardAvoidingView behavior="padding" enabled={Platform.OS === 'ios'} style={styles.keyboard}>
                     <FlatList
                         extraData={params}
                         data={steps}
@@ -144,7 +143,6 @@ class CheckoutScreen extends React.Component {
                         keyExtractor={item => item.component}
                         renderItem={this.renderContent}
                     />
-                </KeyboardAvoidingView>
             </ThemedView>
         );
     }

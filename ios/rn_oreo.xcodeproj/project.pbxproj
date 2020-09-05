@@ -38,9 +38,9 @@
 		882243A8238689C100CFE8BB /* OneSignalNotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 882243A0238689C100CFE8BB /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9019D946CEDC4A86B83111B4 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12C44B73B82745BEB7B9E6E3 /* FontAwesome5_Regular.ttf */; };
 		9C1532084662F11250C22123 /* libPods-rn_oreoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A207025C5F0061F6CA6E8B9 /* libPods-rn_oreoTests.a */; };
-		A77B3AA524FC3C4000145AEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A77B3AA424FC3C3F00145AEE /* GoogleService-Info.plist */; };
 		A77B3AA724FC3E4400145AEE /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A77B3AA624FC3E4400145AEE /* splash.png */; };
 		C6E1AD6B1A2A445295446215 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7689B0F927A42CCAE668B58 /* MaterialIcons.ttf */; };
+		C93687192502042600844E17 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C93687182502042500844E17 /* GoogleService-Info.plist */; };
 		CA54BD2B9AEF4E52A576F9C2 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39520C08D4554D71A9BC8D53 /* FontAwesome5_Solid.ttf */; };
 		CBFCAD806B1E4692B974275F /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 01315FE4DFD446AAB95EC4B7 /* Ionicons.ttf */; };
 		D49FB677ACA74F65B961DB86 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 716B1E682D6844169C796D89 /* Entypo.ttf */; };
@@ -132,7 +132,6 @@
 		882243A5238689C100CFE8BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A207025C5F0061F6CA6E8B9 /* libPods-rn_oreoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rn_oreoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CAFE9D11A3A31B56D43FF77 /* Pods-rn_oreo-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rn_oreo-tvOS.release.xcconfig"; path = "Target Support Files/Pods-rn_oreo-tvOS/Pods-rn_oreo-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		A77B3AA424FC3C3F00145AEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A77B3AA624FC3E4400145AEE /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = ../android/app/src/main/res/drawable/splash.png; sourceTree = "<group>"; };
 		ABAE0FC2A2ED0040FED11027 /* Pods-rn_oreo-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rn_oreo-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-rn_oreo-tvOS/Pods-rn_oreo-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B5134E29FBC44365A17C7070 /* Jost-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Jost-Light.ttf"; path = "../assets/fonts/Jost-Light.ttf"; sourceTree = "<group>"; };
@@ -140,6 +139,7 @@
 		BB31F4D191724847A8D65B9A /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		C2AAD548E4FB84AD284EB87D /* Pods-rn_oreo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rn_oreo-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-rn_oreo-tvOSTests/Pods-rn_oreo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3E1277539114A978A346DD1 /* Jost-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Jost-Medium.ttf"; path = "../assets/fonts/Jost-Medium.ttf"; sourceTree = "<group>"; };
+		C93687182502042500844E17 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CBEA9618926E69B1C982FB69 /* Pods-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-OneSignalNotificationServiceExtension/Pods-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		CC37174A488C6BE6504FB353 /* libPods-rn_oreo-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rn_oreo-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA99C26684540B3974F921E /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
@@ -217,8 +217,8 @@
 		13B07FAE1A68108700A75B9A /* rn_oreo */ = {
 			isa = PBXGroup;
 			children = (
+				C93687182502042500844E17 /* GoogleService-Info.plist */,
 				A77B3AA624FC3E4400145AEE /* splash.png */,
-				A77B3AA424FC3C3F00145AEE /* GoogleService-Info.plist */,
 				8822438B238638DF00CFE8BB /* Oreo Fashion.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -525,7 +525,7 @@
 				D5814F52EBAD47F6B4E583A8 /* Feather.ttf in Resources */,
 				3538E11F4B7E4B729CFD85DF /* FontAwesome.ttf in Resources */,
 				6F8F7356107F4F5DADFE8F2A /* FontAwesome5_Brands.ttf in Resources */,
-				A77B3AA524FC3C4000145AEE /* GoogleService-Info.plist in Resources */,
+				C93687192502042600844E17 /* GoogleService-Info.plist in Resources */,
 				9019D946CEDC4A86B83111B4 /* FontAwesome5_Regular.ttf in Resources */,
 				CA54BD2B9AEF4E52A576F9C2 /* FontAwesome5_Solid.ttf in Resources */,
 				0DBF0C5B5C4A47A3A1C1203F /* Fontisto.ttf in Resources */,
@@ -936,7 +936,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "rn_oreo/Oreo Fashion.entitlements";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0409;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = YY4H32297V;
 				INFOPLIST_FILE = rn_oreo/Info.plist;
@@ -960,7 +960,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "rn_oreo/Oreo Fashion.entitlements";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0409;
 				DEVELOPMENT_TEAM = YY4H32297V;
 				INFOPLIST_FILE = rn_oreo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

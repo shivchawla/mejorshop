@@ -3,6 +3,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {View, I18nManager, Alert} from 'react-native';
+import { KeyboardAwareScrollView as ScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import {SwipeListView} from 'react-native-swipe-list-view';
 import {showMessage} from 'react-native-flash-message';
 import {Header, ThemedView, Loading} from 'src/components';
@@ -177,7 +179,8 @@ class CartScreen extends React.Component {
     const webviewCheckout = configs.get('webviewCheckout', true);
    
     return (
-      <>
+        <>
+        <ScrollView>
         <CartTotal style={styles.viewTotal}/>
         <SwipeListView
           useFlatList
@@ -210,6 +213,8 @@ class CartScreen extends React.Component {
             <Coupon/>
           </Container> : null}
         />
+        </ScrollView>
+
         <Container style={styles.footerScrollview}>
           <Button title={t('cart:text_go_checkout')} onPress={() => {
             // console.log(siteConfig.get('enable_guest_checkout'), isLogin);

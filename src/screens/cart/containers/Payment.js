@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 import {Map} from 'immutable';
 import {withTranslation} from 'react-i18next';
 
-import {StyleSheet, ScrollView, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import { KeyboardAwareScrollView as ScrollView} from 'react-native-keyboard-aware-scroll-view'
+
 import {Text} from 'src/components';
 import {Row, Col} from 'src/containers/Gird';
 import Button from 'src/containers/Button';
@@ -107,8 +109,8 @@ class Payment extends React.Component {
             params={params}
           />
         </Container>
-      </ScrollView>
-
+        </ScrollView>
+      
         <Container>
         <Row style={styles.footer}>
             <Col>
@@ -128,6 +130,8 @@ class Payment extends React.Component {
           </Row>
         </Container>
 
+
+
       </View>
     );
   }
@@ -144,7 +148,7 @@ const styles = StyleSheet.create({
   bottom: {
     flex: 1,
     justifyContent: 'flex-end',
-    marginBottom: 36
+    marginBottom: 36,
   }
 });
 

@@ -6,7 +6,9 @@ import {fromJS, Map} from 'immutable';
 import {withTranslation} from 'react-i18next';
 import get from 'lodash/get';
 
-import {ScrollView, StyleSheet, Switch, View, ActivityIndicator, Modal} from 'react-native';
+import {StyleSheet, Switch, View, ActivityIndicator, Modal} from 'react-native';
+import { KeyboardAwareScrollView as ScrollView} from 'react-native-keyboard-aware-scroll-view'
+
 import {Text, ThemedView, Header} from 'src/components';
 import {TextHeader, IconHeader, CartIcon} from 'src/containers/HeaderComponent';
 import Container from 'src/containers/Container';

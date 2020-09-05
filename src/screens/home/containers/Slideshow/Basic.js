@@ -69,7 +69,7 @@ class SlideshowBasic extends Component {
                 imageStyle={styles.viewImage}
                 source={
                   item.image && item.image[language]
-                    ? {uri: item.image[language], headers: {Accept: 'image/webp'}}
+                    ? {uri: item.image[language]}
                     : require('src/assets/images/pDefault.png')
                 }
               >

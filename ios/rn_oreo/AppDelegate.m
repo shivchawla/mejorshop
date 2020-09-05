@@ -14,6 +14,10 @@
 
 #import "RNSplashScreen.h"
 
+#import "SDImageCodersManager.h"
+#import <SDWebImageWebPCoder/SDImageWebPCoder.h>
+
+
 @import Firebase;
 
 @implementation AppDelegate
@@ -38,6 +42,11 @@
   [self.window makeKeyAndVisible];
 
   [RNSplashScreen showSplash:@"LaunchScreen" inRootView:rootView];
+  
+  // Register WebP format support
+  [SDImageCodersManager.sharedManager addCoder:SDImageWebPCoder.sharedCoder];
+  // ...
+
   return YES;
 }
 
@@ -58,5 +67,6 @@
                                                          openURL:url
                                                          options:options];
   }
+
 
 @end
