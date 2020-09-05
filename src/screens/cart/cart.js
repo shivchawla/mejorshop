@@ -3,7 +3,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {View, I18nManager, Alert} from 'react-native';
-import { KeyboardAwareScrollView as ScrollView } from 'react-native-keyboard-aware-scroll-view'
+
+import {listenToKeyboardEvents} from 'react-native-keyboard-aware-scroll-view';
 
 import {SwipeListView} from 'react-native-swipe-list-view';
 import {showMessage} from 'react-native-flash-message';
@@ -52,6 +53,15 @@ import {
 import { addWishList, removeWishList } from 'src/modules/common/actions';
 import { checkQuantity } from 'src/utils/product';
 import { isLoginSelector } from '../../modules/auth/selectors';
+
+const config = {
+  enableOnAndroid: false,
+  enableAutomaticScroll: true,
+  // extraHeight: 100,
+  // extraScrollHeight: 100,
+}
+
+const KeyboardAwareSwipeListView = listenToKeyboardEvents(config)(SwipeListView);
 
 class CartScreen extends React.Component {
   goToProduct = product_id => {
@@ -180,9 +190,8 @@ class CartScreen extends React.Component {
    
     return (
         <>
-        <ScrollView>
         <CartTotal style={styles.viewTotal}/>
-        <SwipeListView
+        <KeyboardAwareSwipeListView
           useFlatList
           removeClippedSubviews={false}
           keyExtractor={(item, index) => `${item.product_id}-${item.variation ? item.variation.id : ''}-${index}`}
@@ -213,8 +222,7 @@ class CartScreen extends React.Component {
             <Coupon/>
           </Container> : null}
         />
-        </ScrollView>
-
+      
         <Container style={styles.footerScrollview}>
           <Button title={t('cart:text_go_checkout')} onPress={() => {
             // console.log(siteConfig.get('enable_guest_checkout'), isLogin);
@@ -264,6 +272,7 @@ const styles = {
   },
   footerScrollview: {
     marginVertical: margin.large,
+    // flex: 1
   },
 };
 

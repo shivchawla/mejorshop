@@ -87,13 +87,13 @@ class AboutStore extends React.Component {
     if (!store) {
       return null;
     }
-    const {vendor_address, vendor_email, vendor_phone, social, about} = store;
+    const {vendor_address, vendor_email, vendor_phone, social, about, 
+      store_hide_email = "yes", store_hide_address = "yes", store_hide_phone = "yes"} = store;
 
     // const countries = country.get('data').toJS();
 
     // const addressStr = store.vendor_address;
     // getAddress(address, countries);
-    // console.log(about);
 
     return (
       <ScrollView>
@@ -103,7 +103,7 @@ class AboutStore extends React.Component {
           {/*  style={{width: widthImage, height: heightImage, marginBottom: margin.big + 7}}/>*/}
           <View>
             <TextHtml value={about}/>
-            {vendor_address && vendor_address != '' && (<View style={styles.viewRowInfo}>
+            {vendor_address && vendor_address != '' && store_hide_address == "no" && (<View style={styles.viewRowInfo}>
               <Icon
                 name={'map'}
                 size={16}
@@ -113,7 +113,7 @@ class AboutStore extends React.Component {
               <Text>{vendor_address}</Text>
             </View>)}
 
-            {vendor_phone && vendor_phone != '' && (<View style={styles.viewRowInfo}>
+            {vendor_phone && vendor_phone != '' && store_hide_phone == "no" && (<View style={styles.viewRowInfo}>
               <Icon
                 name="phone-call"
                 size={16}
@@ -123,7 +123,7 @@ class AboutStore extends React.Component {
               <Text>{vendor_phone}</Text>
             </View>)}
 
-            {vendor_email && vendor_email != '' && (<View style={styles.viewRowInfo}>
+            {vendor_email && vendor_email != '' && store_hide_email == "no" && (<View style={styles.viewRowInfo}>
               <Icon
                 name="mail"
                 size={16}
