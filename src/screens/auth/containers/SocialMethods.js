@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withNavigation} from 'react-navigation';
 
+
 import {StyleSheet, View, Platform} from 'react-native';
 import {Loading} from 'src/components';
 import SocialIcon from 'src/containers/SocialIcon';
@@ -115,6 +116,7 @@ class SocialMethods extends React.Component {
       toggleLoginSMS,
     } = configs.toJS();
 
+
     return (
       <View style={[styles.container, style && style]}>
         <Loading visible={(pendingGoogle || pendingFacebook || pendingApple)} />
@@ -149,7 +151,7 @@ class SocialMethods extends React.Component {
             fontStyle={styles.textButtonSocial}
           />
         ) : null}
-        {Platform.OS === 'ios' ? (
+        {Platform.OS === 'ios' && parseInt(Platform.Version, 10) >= 13 ? (
           <SocialIcon
             type="apple"
             iconSize={16}
