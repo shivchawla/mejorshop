@@ -148,7 +148,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionName "1.1.0"
-        versionCode 1588551085
+        versionCode 1588552085
         multiDexEnabled true
     }
 

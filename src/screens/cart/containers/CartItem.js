@@ -98,9 +98,13 @@ class CartItem extends React.Component {
             <Quantity value={parseInt(quantity)} onChange={(value) => updateQuantity(item, value)} />
           )}
         </Col>
-        {line_total != line_subtotal ? (<Text medium style={{textDecorationLine: 'line-through', color: 'red', marginRight: 5}}>{currencyFormatter(line_subtotal, currency)}</Text>) : null}
-        {<Text medium >{currencyFormatter(line_total, currency)}</Text>}
-      </Row>
+        <Col style={{flex: 0.35}}>
+        {line_total != line_subtotal ? (
+          <Row><Text medium style={styles.originalPrice}>{currencyFormatter(line_subtotal, currency)}
+          </Text></Row>) : null}
+          <Row><Text medium >{currencyFormatter(line_total, currency)}</Text></Row>
+        </Col>
+      </Row>  
     );
   }
 }
@@ -136,6 +140,9 @@ const styles = StyleSheet.create({
     lineHeight: lineHeights.h6 - 2,
     color: grey4,
     marginRight: margin.small,
+  },
+  originalPrice: {
+    textDecorationLine: 'line-through', color: 'red', marginRight: 5
   },
 });
 
