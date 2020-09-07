@@ -98,11 +98,11 @@ class CartItem extends React.Component {
             <Quantity value={parseInt(quantity)} onChange={(value) => updateQuantity(item, value)} />
           )}
         </Col>
-        <Col style={{flex: 0.35}}>
+        <Col style={{maxWidth: 80}}>
         {line_total != line_subtotal ? (
-          <Row><Text medium style={styles.originalPrice}>{currencyFormatter(line_subtotal, currency)}
+          <Row><Text medium style={[styles.price, styles.originalPrice]}>{currencyFormatter(line_subtotal, currency)}
           </Text></Row>) : null}
-          <Row><Text medium >{currencyFormatter(line_total, currency)}</Text></Row>
+          <Row><Text style={styles.price} medium >{currencyFormatter(line_total, currency)}</Text></Row>
         </Col>
       </Row>  
     );
@@ -142,8 +142,12 @@ const styles = StyleSheet.create({
     marginRight: margin.small,
   },
   originalPrice: {
-    textDecorationLine: 'line-through', color: 'red', marginRight: 5
+    textDecorationLine: 'line-through', color: 'red'
   },
+  price:{
+    textAlign:'right',
+    flex: 1,
+  }
 });
 
 export default withTheme(CartItem);
