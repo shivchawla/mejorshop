@@ -48,8 +48,6 @@ class ProductsScreen extends React.Component {
       categories,
     } = props;
 
-    console.log(categories);
-
     const categoryId = navigation.getParam('id', '');
     const category = findCategory(categoryId, categories);
     const name = navigation.getParam('name', '')

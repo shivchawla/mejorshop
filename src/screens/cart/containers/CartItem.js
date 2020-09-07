@@ -100,9 +100,9 @@ class CartItem extends React.Component {
         </Col>
         <Col style={{maxWidth: 80}}>
         {line_total != line_subtotal ? (
-          <Row><Text medium style={[styles.price, styles.originalPrice]}>{currencyFormatter(line_subtotal, currency)}
+          <Row><Text style={[styles.price, styles.originalPrice]}>{currencyFormatter(line_subtotal, currency)}
           </Text></Row>) : null}
-          <Row><Text style={styles.price} medium >{currencyFormatter(line_total, currency)}</Text></Row>
+          <Row><Text style={styles.price}>{currencyFormatter(line_total, currency)}</Text></Row>
         </Col>
       </Row>  
     );
