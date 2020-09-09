@@ -98,7 +98,7 @@ class CartItem extends React.Component {
             <Quantity value={parseInt(quantity)} onChange={(value) => updateQuantity(item, value)} />
           )}
         </Col>
-        <Col style={{maxWidth: 80}}>
+        <Col style={{maxWidth: 70}}>
         {line_total != line_subtotal ? (
           <Row><Text style={[styles.price, styles.originalPrice]}>{currencyFormatter(line_subtotal, currency)}
           </Text></Row>) : null}
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingLeft: padding.big,
-    paddingRight: padding.big,
+    paddingRight: padding.large,
     justifyContent: 'space-between',
     alignItems: 'flex-start',
   },
