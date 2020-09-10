@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     paddingVertical: padding.big,
   },
   textTitle: {
-    fontSize: 40,
+    fontSize: 38,
   },
   viewPagination: {
     position: 'absolute',

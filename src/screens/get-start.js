@@ -25,11 +25,13 @@ class GetStartScreen extends React.Component {
         return (
             <ThemedView isFullView>
                 <StatusBar hidden/>
-                {
+                {/*
                     ENABLE_VIDEO ?
                         <GetStartVideo handleGettingStarted={this.handleGettingStarted}/> :
-                        <GetStartSwiper handleGettingStarted={this.handleGettingStarted}/>
-                }
+                */}
+                
+                <GetStartSwiper handleGettingStarted={this.handleGettingStarted}/>
+
             </ThemedView>
         );
     }

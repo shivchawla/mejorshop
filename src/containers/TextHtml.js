@@ -9,12 +9,18 @@ import fonts, {sizes, lineHeights} from 'src/components/config/fonts';
 const TextHtml = ({value, theme, style, ...rest}) => {
   const valueHtml = `<div>${
     value && typeof value === 'string' ? value.replace(/[\n\r]+/g, '') : ''
-  }</div>`;
+  }</div>`.replace(new RegExp('<p>\s*(<br\s*/*>)?\s*</p>','g'), '');
 
   return (
-    <HTMLView {...rest} value={valueHtml} stylesheet={merge(styles(theme), style)} />
+    <HTMLView 
+      value={valueHtml} 
+      stylesheet={merge(styles(theme), style)}
+      textComponentProps={{maxFontSizeMultiplier: 1.1}} 
+      {...rest} 
+    />
   );
 };
+
 
 const styles = theme => ({
   div: {
@@ -22,7 +28,7 @@ const styles = theme => ({
     fontSize: sizes.base,
     lineHeight: lineHeights.base,
     color: theme.colors.primary,
-    textAlign: 'left',
+    textAlign: 'left', 
   },
   span: {
     ...fonts.regular,
