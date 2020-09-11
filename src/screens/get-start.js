@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {StatusBar} from 'react-native';
 import {ThemedView} from 'src/components';
 import GetStartSwiper from 'src/containers/GetStartSwiper';
-import GetStartVideo from 'src/containers/GetStartVideo';
+// import GetStartVideo from 'src/containers/GetStartVideo';
 
 import {closeGettingStarted} from 'src/modules/common/actions';
 import {routerMainSelector} from 'src/modules/common/selectors';
