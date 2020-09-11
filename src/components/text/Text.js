@@ -34,7 +34,7 @@ const TextElement = props => {
 
   return (
     <Text
-      maxFontSizeMultiplier={1.1}
+      maxFontSizeMultiplier={1.04}
       style={StyleSheet.flatten([
         styles.text,
         StyleSheet.flatten([primary, style]),
