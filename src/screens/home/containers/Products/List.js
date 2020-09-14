@@ -8,7 +8,7 @@ const List = ({
   navigationType
 }) => {
   const widthImage = 78;
-  const heightImage = (widthImage*height)/width;
+  const heightImage = widthImage; //(widthImage*height)/width;
   return data.map((item, index) => (
     <Item2
       key={index}

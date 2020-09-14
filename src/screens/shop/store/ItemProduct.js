@@ -1,173 +1,222 @@
 import React from 'react';
-import {compose} from 'redux';
+
+import {compose} from 'recompose';
 import {connect} from 'react-redux';
-import {useTranslation} from 'react-i18next';
+import {List, Map, fromJS} from 'immutable';
 
 import {withNavigation} from 'react-navigation';
+import {useTranslation} from 'react-i18next';
+
 import unescape from 'lodash/unescape';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import {Text, Image, ThemeConsumer} from 'src/components';
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
+import {Image, Badge, Text, ThemeConsumer} from 'src/components';
 import WishListIcon from 'src/containers/WishListIcon';
 import Price from 'src/containers/Price';
-
 import Rating from 'src/containers/Rating';
 
-import {margin, padding} from 'src/components/config/spacing';
-
-import {mainStack} from 'src/config/navigator';
 import {configsSelector} from 'src/modules/common/selectors';
+import {addToCart} from 'src/modules/cart/actions';
 
-const ItemProduct = React.memo( props => {
-  const {item, navigation, configs} = props;
-  const {t} = useTranslation();
-  if (!item) {
-    return null;
-  }
+import {white, black} from 'src/components/config/colors';
+import {borderRadius, margin} from 'src/components/config/spacing';
+import {mainStack} from 'src/config/navigator';
+
+import {SIMPLE} from 'src/config/product';
+
+const ItemProduct = React.memo(props => {
+  const {
+    item,
+    width,
+    height,
+    navigation,
+    dispatch,
+    theme,
+    configs,
+  } = props;
   const {
     name,
     images,
     price_format,
+    on_sale,
+    is_new,
     type,
-    id,
-    in_stock,
-    stock_quantity,
     average_rating,
     rating_count,
+    id,
+    purchasable,
+    stock_status,
   } = item;
+  const {t} = useTranslation();
 
-  const colorStock = !in_stock ? 'error' : 'success';
-  const textStock = !in_stock
-    ? 'catalog:text_stock_out'
-    : stock_quantity
-    ? 'catalog:text_in_stock'
-    : 'catalog:text_stock';
+  const productItemStyle = {
+    width: width,
+  };
+
+  const productItemImageStyle = {
+    width,
+    height,
+  };
+  const listStatus = ['instock', 'onbackorder'];
+
+  const out_of_stock = stock_status == 'outofstock';
 
   return (
     <ThemeConsumer>
       {({theme}) => (
         <TouchableOpacity
-          style={[styles.container, {borderColor: theme.colors.border}]}
-          onPress={() =>
-            navigation.push(mainStack.product, {
-              id,
-            })
-          }>
-          <Image
-            source={
-              images && images.length
-                ? {uri: images[0].src, headers: {Accept: 'image/webp'}}
-                : require('src/assets/images/pDefault.png')
-            }
-            style={styles.image}
-          />
-          <View style={styles.content}>
-            <View style={styles.viewName}>
-              <Text h5 colorSecondary medium style={styles.name} numberOfLines={2}>
-                {unescape(name)}
-              </Text>
-              <View style={styles.viewWishList}>
-                <WishListIcon
-                  product_id={id}
-                  size={15}
-                  color={theme.colors.primary}
-                  colorSelect={theme.colors.primary}
-                  containerStyle={styles.iconWishlist}
-                />
+          delayPressIn={150}
+          style={productItemStyle}
+          onPress={() => navigation.push(mainStack.product, {id})}>
+          <View>
+            <Image
+              source={
+                images && images.length
+                  ? {uri: images[0].shop_single, headers: {Accept: 'image/webp'}}
+                  : require('src/assets/images/pDefault.png')
+              }
+              style={productItemImageStyle}
+              PlaceholderContent={<ActivityIndicator />}
+            />
+            <View style={styles.labelWrap}>
+              <View style={styles.viewHeaderLabel}>
+                <View>
+                  {is_new ? (
+                    <Badge
+                      value={t('common:text_new')}
+                      status="success"
+                      containerStyle={styles.badge}
+                    />
+                  ) : null}
+                  
+                  {on_sale && !out_of_stock ? (
+                    <Badge value={t('common:text_sale')} status="warning" />
+                  ) : null}
+                  
+                  {out_of_stock ? (
+                    <Badge value={t('common:text_outofstock')} status="error" />
+                  ) : null}
+
+                </View>
+                <WishListIcon product_id={id} />
               </View>
+              {configs.get('toggleAddButtonProduct') &&
+                configs.get('toggleCheckout') &&
+                type === SIMPLE &&
+                purchasable &&
+                listStatus.includes(stock_status) && (
+                  <TouchableOpacity
+                    style={styles.buttonAdd}
+                    onPress={() =>
+                      dispatch(
+                        addToCart({
+                          product_id: item.id,
+                          quantity: 1,
+                          variation: Map(),
+                          product: fromJS(item),
+                          meta_data: List(),
+                        }),
+                      )
+                    }>
+                    <Text h4 medium style={styles.textAdd}>
+                      +
+                    </Text>
+                  </TouchableOpacity>
+                )}
             </View>
+          </View>
+          <View style={styles.viewInfo}>
+            <Text
+              h5
+              style={[
+                styles.textName,
+                {
+                  color: theme.ProductItem.color,
+                },
+              ]}
+            >
+              {unescape(name)}
+            </Text>
             <Price
               price_format={price_format}
               type={type}
-              style={styles.price}
+              style={styles.textPrice}
             />
-            <View style={styles.viewFooter}>
-              {configs.get('toggleReviewProduct') ? <View style={styles.viewRating}>
+            {configs.get('toggleReviewProduct') &&
+            configs.get('toggleRatingProduct') ? (
+              <View style={styles.viewFooter}>
                 <Rating
+                  size={12}
                   startingValue={parseFloat(average_rating)}
                   readonly
-                  containerStyle={styles.rating}
                 />
-                <Text medium style={styles.countRating}>
-                  ({rating_count})
-                </Text>
-              </View> : <View style={styles.viewRating}/>}
-              <Text
-                h6
-                style={[styles.stockStatus, {color: theme.colors[colorStock]}]}>
-                {t(textStock, {count: stock_quantity})}
-              </Text>
-
-            </View>
+                <Text style={styles.nameRating}>({rating_count})</Text>
+              </View>
+            ) : null}
           </View>
         </TouchableOpacity>
       )}
-    </ThemeConsumer>
+    </ThemeConsumer>  
   );
 });
 
 const styles = StyleSheet.create({
-  row: {
+  viewInfo: {
+    marginTop: margin.base + 2,
+  },
+  labelWrap: {
+    position: 'absolute',
+    top: 10,
+    left: 10,
+    right: 10,
+    bottom: 12,
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+  },
+  viewHeaderLabel: {
+    width: '100%',
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  flex: {
-    flex: 1,
-  },
-  container: {
-    flexDirection: 'row',
-    paddingHorizontal: padding.large,
-    paddingVertical: padding.large + 3,
-    borderBottomWidth: 1,
-  },
-  image: {
-    width: 78,
-    height: 93,
-  },
-  content: {
-    flex: 1,
-    marginLeft: margin.large + 4,
-  },
-  viewName: {
-    flexDirection: 'row',
+  textName: {
     marginBottom: 4,
   },
-  name: {
-    flex: 1,
-    marginRight: margin.base,
+  textPrice: {
+    marginBottom: margin.small,
   },
-  viewWishList: {
-    zIndex: 9999,
-  },
-  iconWishlist: {
-    marginTop: 3,
-  },
-  price: {
-    marginBottom: margin.big - 6,
+  badge: {
+    marginBottom: 5,
   },
   viewFooter: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    // justifyContent: '',
     alignItems: 'center',
   },
-  viewRating: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: margin.small,
-  },
-  rating: {
-    marginRight: margin.small - 2,
-  },
-  countRating: {
+  nameRating: {
     fontSize: 10,
     lineHeight: 15,
+    marginLeft: margin.small - 2,
   },
-  stockStatus: {
-    marginLeft: margin.small,
+  buttonAdd: {
+    backgroundColor: black,
+    width: 29,
+    height: 29,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: borderRadius.base,
+  },
+  textAdd: {
+    color: white,
   },
 });
 
 ItemProduct.defaultProps = {
-  item: {},
+  width: 227,
+  height: 227,
 };
 
 const mapStateToProps = state => {

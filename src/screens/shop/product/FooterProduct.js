@@ -18,11 +18,8 @@ const FooterProduct = ({
 }) => {
   const {t} = useTranslation();
   
-  // console.log("is Login");
-  // console.log(isLogin);
-
   return (
-    <Container style={{marginBottom: margin.big, marginTop: margin.large}}>
+    <Container style={{marginBottom: margin.base, marginTop: margin.base}}>
       <Row>
         {(isLogin && !isAddToCart) && (
             <Col>

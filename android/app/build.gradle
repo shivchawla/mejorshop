@@ -147,8 +147,8 @@ android {
         applicationId "com.mejorshop.rnapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionName "1.1.1"
-        versionCode 1588553005
+        versionName "1.1.2"
+        versionCode 1588553015
         multiDexEnabled true
     }
 

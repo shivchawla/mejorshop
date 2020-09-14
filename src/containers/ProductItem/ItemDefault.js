@@ -70,9 +70,7 @@ const ItemDefault = React.memo(props => {
     <TouchableOpacity
       delayPressIn={150}
       style={productItemStyle}
-      onPress={() =>
-        navigation[navigationType](mainStack.product, {product: item})
-      }>
+      onPress={() => navigation[navigationType](mainStack.product, {product: item})}>
       <View>
         <Image
           source={

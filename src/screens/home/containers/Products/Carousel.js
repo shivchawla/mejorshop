@@ -18,7 +18,7 @@ const Carousel = ({
   const paddingEnd = box ? padding.large: 0;
   const column = col > 0 ? col : 1.5;
   const widthImage = widthView/column;
-  const heightImage =(widthImage * height)/width;
+  const heightImage = widthImage; //(widthImage * height)/width;
 
   return (
     <ScrollView

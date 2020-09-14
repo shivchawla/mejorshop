@@ -177,7 +177,7 @@ class ProductStore extends Component {
             data={dataPrepare.toJS()}
             renderItem={({item}) => (
               <Container disable={column > 1 ? 'all' : 'none'}>
-                <ItemProduct item={item} width={wImage} height={hImage} />
+                <ItemProduct item={item} width={wImage} height={hImage} navigationType="push" />
               </Container>
             )}
             onEndReached={this.handleLoadMore}

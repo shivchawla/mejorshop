@@ -88,11 +88,16 @@ class Product extends Component {
     };
   }
 
+  
   componentDidMount() {
-    const {dispatch, attribute, lang} = this.props;
     const {product} = this.state;
+    this.handleProductVariationsAndVendor(product);
+  }
 
-    const vendor_id = product.getIn(['store', 'vendor_id']);
+  handleProductVariationsAndVendor(product) {
+    const {dispatch, attribute, lang} = this.props;
+
+    // const vendor_id = product.getIn(['store', 'vendor_id']);
     dispatch(fetchRating(product.get('id')));
 
     // Fetch attribute with product is variation
@@ -127,10 +132,6 @@ class Product extends Component {
         });
     }
 
-    if (vendor_id) {
-      dispatch(fetchVendorDetail(vendor_id))
-      // this.getStore(vendor_id)
-    }
   }
 
   componentWillUnmount() {
@@ -285,10 +286,12 @@ class Product extends Component {
       dataRating: {rating},
       navigation,
       configs,
-      vendorDetail,
+      dispatch
     } = this.props;
 
     const {product, isAddToCart, variation, addingToCart} = this.state;
+
+    const vendorDetail = product.get('store'); 
 
     if (!product.get('id')) {
       return (
@@ -312,7 +315,7 @@ class Product extends Component {
     const stock_status = ['instock', 'onbackorder'];
 
     const valueCheck = variation && variation.size > 0 ? variation : product;
-
+    
     return (
       <>
       <Loading visible={addingToCart}/>
@@ -422,7 +425,9 @@ class Product extends Component {
               style={{
                 marginTop: 25,
               }}
-              onPress={() => navigation.navigate(mainStack.store_detail)}
+              onPress={() => {
+                dispatch(fetchVendorDetail(vendorDetail.get('vendor_id'))); 
+                navigation.navigate(mainStack.store_detail)}}
             />
           ) : null}
         </Container>
@@ -497,7 +502,6 @@ const mapStateToProps = state => {
     defaultCurrency: defaultCurrencySelector(state),
     lang: languageSelector(state),
     configs: configsSelector(state),
-    vendorDetail: detailVendorSelector(state),
   };
 };
 

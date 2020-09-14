@@ -20,6 +20,15 @@ export const homeTabs = {
   me: 'ProfileStack',
 };
 
+export const shopStack = {
+  category: 'CategoryScreen',
+  search: 'SearchScreen',
+  products: 'ProductsScreen',
+  product: 'ProductScreen',
+  stores: 'StoresScreen',
+  store_detail: 'StoreDetailScreen',
+};
+
 export const mainStack = {
   home_drawer: 'HomeDrawer',
   search: 'SearchScreen',

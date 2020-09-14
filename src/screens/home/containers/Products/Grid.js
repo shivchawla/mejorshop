@@ -18,7 +18,7 @@ const Grid = ({
   const column = col > 0 ? col : 1;
   const paddingSeparator = separator * (column - 1);
   const widthImage = (widthView -paddingSeparator)/column;
-  const heightImage = (widthImage * height)/width;
+  const heightImage = widthImage; //(widthImage * height)/width;
 
   return (
     <View style={[

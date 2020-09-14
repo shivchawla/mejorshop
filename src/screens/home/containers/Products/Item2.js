@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 
 Item2.defaultProps = {
   width: 78,
-  height: 93,
+  height: 94,
   navigationType: 'navigate',
 };
 export default compose(

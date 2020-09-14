@@ -8,6 +8,7 @@ import WishList from 'src/screens/wishlist';
 
 import ProfileStack from './profile-stack';
 import CartStack from './cart-stack';
+import ShopStack from './shop-stack';
 
 import Tabbar from 'src/containers/Tabbar';
 
@@ -19,7 +20,7 @@ const Tabs = createBottomTabNavigator(
       screen: Home,
     },
     [homeTabs.shop]: {
-      screen: Category,
+      screen: ShopStack,
     },
     [homeTabs.wish_list]: {
       screen: WishList,
@@ -27,7 +28,7 @@ const Tabs = createBottomTabNavigator(
     [homeTabs.cart]: {
       screen: CartStack,
       navigationOptions: ({ navigation }) => {
-        const {state: {index}} = navigation
+        const {state: {index}} = navigation;
         return {
           tabBarVisible: index === 0,
         }
@@ -38,9 +39,7 @@ const Tabs = createBottomTabNavigator(
     },
   },
   {
-    defaultNavigationOptions: {
-      // tabBarVisible: false
-    },
+    resetOnBlur: true,
     tabBarComponent: props => <Tabbar {...props}/>,
   }
 );
