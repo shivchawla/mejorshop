@@ -158,6 +158,7 @@ class PaymentMethod extends React.Component {
           nextStep={this.handleNext}
           handlePayment={this.handlePayment}
           handlePaymentProgress={this.handlePaymentProgress}
+          cancel={() => this.setModalVisible(false)}
         />
       </View>
     );

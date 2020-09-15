@@ -40,6 +40,9 @@ import {
   configsSelector,
 } from 'src/modules/common/selectors';
 
+import {isLoginSelector} from 'src/modules/auth/selectors';
+
+
 import {prepareProductItem} from 'src/utils/product';
 import {changeColor, changeSize} from 'src/utils/text-html';
 
@@ -143,7 +146,7 @@ class Product extends Component {
   addToCart = () => {
     const {product, quantity, variation, meta_data} = this.state;
 
-    const {dispatch} = this.props;
+    const {dispatch, navigation, isLogin} = this.props;
     let check = true;
 
     // Check select variations
@@ -187,18 +190,21 @@ class Product extends Component {
         item = {...item, variation: vars, variation_id};
       }
 
-
-      dispatch(
-        addToCart(item,
-          (output) => { 
-            if (output.success) {
-              this.setState({isAddToCart: true, addingToCart: false});
-            } else {
-              this.setState({isAddToCart: false, addingToCart: false})  
-            }
-          } 
-        ),
-      );
+      if (isLogin) {
+        dispatch(
+          addToCart(item,
+            (output) => { 
+              if (output.success) {
+                this.setState({isAddToCart: true, addingToCart: false});
+              } else {
+                this.setState({isAddToCart: false, addingToCart: false})  
+              }
+            } 
+          ),
+        );
+      } else {
+        navigation.navigate(authStack.login, {redirect: 'addToCart', item});
+      }
     }
   };
 
@@ -315,7 +321,7 @@ class Product extends Component {
     const stock_status = ['instock', 'onbackorder'];
 
     const valueCheck = variation && variation.size > 0 ? variation : product;
-    
+
     return (
       <>
       <Loading visible={addingToCart}/>
@@ -338,7 +344,6 @@ class Product extends Component {
               isAddToCart={isAddToCart}
               onPressAddCart={this.addToCart}
               onPressViewCart={() => navigation.navigate(homeTabs.cart)}
-              onPressLogin={() => navigation.navigate(authStack.login)}
             />
           )
         }
@@ -502,6 +507,7 @@ const mapStateToProps = state => {
     defaultCurrency: defaultCurrencySelector(state),
     lang: languageSelector(state),
     configs: configsSelector(state),
+    isLogin: isLoginSelector(state),
   };
 };
 

@@ -167,8 +167,11 @@ class CartScreen extends React.Component {
       siteConfig,
       isLogin,
       loading,
+      loadingRemove, loadingUpdate
     } = this.props;
-    if (line_items.size < 1) {
+    
+
+    if (line_items.size < 1 && !loadingUpdate) {
       return (
         <Empty
           icon="shopping-bag"

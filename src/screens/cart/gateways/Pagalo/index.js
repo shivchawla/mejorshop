@@ -1,9 +1,12 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
 
 import { View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { withTheme } from 'src/components';
+
+const Screen = Dimensions.get('window');
+const ScreenWidth = Screen.width;
 
 const queryString = require('query-string');
 
@@ -41,7 +44,9 @@ class PaymentPagalo extends React.Component {
     let errorMessage = error ? '¡Algo salio mal! Intentalo de nuevo' : '';
     let processingDisplay = processing ? 'block' : 'none';
     let buttonText = processing ? 'Procesando...' : 'Finalizar Pago';
-    let html = getHTML(buttonText, processingDisplay, errorMessage);
+    let screenWidth = `${ScreenWidth}px`;
+
+    let html = getHTML(buttonText, processingDisplay, errorMessage, screenWidth);
 
     return (
       <View style={{ flex: 1 }}>

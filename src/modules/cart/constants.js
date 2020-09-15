@@ -1,5 +1,6 @@
 // Oreo App
 export const ADD_TO_CART = 'cart/ADD_TO_CART';
+export const ADD_TO_CART_ERROR = 'cart/ADD_TO_CART_ERROR';
 
 export const ADD_LIST_CART = 'cart/ADD_LIST_CART';
 export const ADD_LIST_CART_SUCCESS = 'cart/ADD_LIST_CART_SUCCESS';

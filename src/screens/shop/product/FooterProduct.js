@@ -14,29 +14,28 @@ const FooterProduct = ({
   onPressAddCart,
   onPressViewCart,
   onPressLogin,
-  isLogin,
 }) => {
   const {t} = useTranslation();
   
   return (
     <Container style={{marginBottom: margin.base, marginTop: margin.base}}>
       <Row>
-        {(isLogin && !isAddToCart) && (
+        {!isAddToCart && (
             <Col>
               <Button title={t('common:text_add_cart')} onPress={onPressAddCart} />
             </Col>
           )} 
-        {(isLogin && isAddToCart) && (
+        {isAddToCart && (
           <Col>
             <Button title={t('common:text_view_cart')} onPress={onPressViewCart}/>
           </Col>
         )}
         
-        {!isLogin && (
+        {/*!isLogin && (
           <Col>
             <Button title={t('common:text_add_cart')} onPress={onPressLogin}/>
           </Col>
-        )}
+        )*/}
       </Row>
     </Container>
   );
@@ -45,7 +44,6 @@ const FooterProduct = ({
 const mapStateToProps = state => {
   return {
     line_items: selectCartList(state),
-    isLogin: isLoginSelector(state),
   };
 };
 

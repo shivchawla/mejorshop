@@ -13,7 +13,7 @@ import SocialMethods from './containers/SocialMethods';
 import {rootSwitch, authStack, homeTabs} from 'src/config/navigator';
 
 import {signInWithEmail} from 'src/modules/auth/actions';
-import {getCart} from 'src/modules/cart/actions';
+import {getCart, addToCart} from 'src/modules/cart/actions';
 import {authSelector, isLoginSelector} from 'src/modules/auth/selectors';
 import {requiredLoginSelector} from 'src/modules/common/selectors';
 import {margin} from 'src/components/config/spacing';
@@ -48,12 +48,32 @@ class LoginScreen extends React.Component {
       screenProps: {t, theme},
       dispatch,
     } = this.props;
+
     const {username, password} = this.state;
     const {message, errors} = loginError;
 
     if(isLogin) {
-      dispatch(getCart());
-      navigation.navigate(homeTabs.home);
+      const redirect = navigation.getParam('redirect', '');
+      const item = navigation.getParam('item', null);
+
+  
+      if (redirect == 'addToCart' && item) {
+        console.log("Adding to Cart");
+        dispatch(
+          addToCart(item,
+          (output) => { 
+              if (output.success) {
+                navigation.navigate(homeTabs.cart);
+              } else {
+                navigation.navigate(homeTabs.home);
+              }
+          })
+        )
+      } else {
+        dispatch(getCart());
+        navigation.navigate(homeTabs.home);
+      }
+
     }
 
     return (

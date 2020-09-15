@@ -101,7 +101,7 @@ const post = (url, data, method = 'POST') => {
         };
 
         // console.log("In POST");
-        // console.log(url.indexOf('/mobile-builder') === 0);
+       // console.log(url.indexOf('/mobile-builder') === 0);
         // console.log(baseURL);
         // console.log(headers);
         // console.log(data);

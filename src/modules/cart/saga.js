@@ -33,6 +33,11 @@ function* addToCartSaga({payload}) {
     if (cb) {
       yield call(cb, {success: false, error});
     }
+
+    yield put({
+      type: Actions.ADD_TO_CART_ERROR
+    });
+
     yield call(showMessage, {
       message: '¡Lo siento! No puedes agregar esté articulo!',
       type: 'danger',

@@ -33,9 +33,12 @@ class PayPal extends Component {
   };
 
   handleResponse = data => {
-    const {nextStep} = this.props;
-    if (data.url.includes('order-received') && data.canGoBack) {
+    const {nextStep, cancel} = this.props;
+    
+    if ((data.url.includes('order-received') || data.url.includes('/checkout/done')) && data.canGoBack) {
       nextStep();
+    } else if (data.url.includes('cancel_order') && data.canGoBack){
+      cancel();
     } else {
       return;
     }

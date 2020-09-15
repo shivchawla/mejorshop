@@ -89,6 +89,15 @@ function cartReducer(state = initState, {type, payload}) {
         .set('cart_loading', false)
         .set('cart_remove_loading', false)
         .set('cart_update_loading', false);  
+
+    case Actions.ADD_TO_CART:
+      return state
+        .set('cart_update_loading', true);
+    
+    case Actions.ADD_TO_CART_ERROR:
+      return state
+        .set('cart_update_loading', false);
+
     case Actions.ADD_LIST_CART:
       return state.set('cart_list_loading', true);
     case Actions.ADD_LIST_CART_SUCCESS:
