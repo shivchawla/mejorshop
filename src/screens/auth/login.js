@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {merge} from 'lodash';
 
 import {StyleSheet, ScrollView, View, KeyboardAvoidingView} from 'react-native';
 import {Header, Divider, Text, ThemedView} from 'src/components';
@@ -58,7 +59,6 @@ class LoginScreen extends React.Component {
 
   
       if (redirect == 'addToCart' && item) {
-        console.log("Adding to Cart");
         dispatch(
           addToCart(item,
           (output) => { 
@@ -96,7 +96,7 @@ class LoginScreen extends React.Component {
               {message ? (
                 <TextHtml
                   value={message}
-                  style={changeColor(theme.colors.error)}
+                  style={merge({div:{marginBottom: margin.large}}, changeColor(theme.colors.error))}
                 />
               ) : null}
               <Input
