@@ -140,7 +140,7 @@ class SocialMethods extends React.Component {
             onPress={this.loginGoogle}
           />
         ) : null}
-        {toggleLoginSMS ? (
+        {/*toggleLoginSMS ? (
           <SocialIcon
             type="commenting"
             iconSize={16}
@@ -150,7 +150,7 @@ class SocialMethods extends React.Component {
             onPress={() => navigation.navigate(authStack.login_mobile)}
             fontStyle={styles.textButtonSocial}
           />
-        ) : null}
+        ) : null*/}
         {Platform.OS === 'ios' && parseInt(Platform.Version, 10) >= 13 ? (
           <SocialIcon
             type="apple"
