@@ -106,25 +106,28 @@
             ],
             "value":[
                {
-                  "id":"1",
-                  "active":true,
                   "heading":{
                      "text":{
                         "en":"60% OFF",
                         "es":"Belleza"
                      },
                      "style":{
-
+                        "color":"#ffffff"
                      }
                   },
-                  "subTitle":{
+                  "active":false,
+                  "enable_button":true,
+                  "btn_name":{
                      "text":{
-                        "en":"New",
-                        "es":"Crema y"
+                        "es":"Ver Más"
                      },
                      "style":{
-
+                        
                      }
+                  },
+                  "action":{
+                     "type":"category",
+                     "id":"150"
                   },
                   "title":{
                      "text":{
@@ -132,94 +135,148 @@
                         "es":"Exfoliantes"
                      },
                      "style":{
-
+                        "color":"#ffffff"
                      }
                   },
+                  "subTitle":{
+                     "text":{
+                        "en":"New",
+                        "es":"Cremas y"
+                     },
+                     "style":{
+                        "color":"#ffffff"
+                     }
+                  },
+                  "id":"1",
                   "image":{
-                     "es":"https://mejorshop.com/wp-content/uploads/2020/08/Banner-02-03.png"
+                     "es":"https://mejorshop.com/wp-content/uploads/2020/08/APP-HOMEPAGE.png"
+                  }
+               },
+               {
+                  "heading":{
+                     "text":{
+                        "en":"60% OFF",
+                        "es":"Ropa"
+                     },
+                     "style":{
+                        "color":"#ffffff"
+                     }
+                  },
+                  "active":false,
+                  "enable_button":true,
+                  "btn_name":{
+                     "text":{
+                        "es":"Ver Más"
+                     },
+                     "style":{
+                        
+                     }
                   },
                   "action":{
                      "type":"category",
-                     "id":"150"
+                     "id":"149"
+                  },
+                  "title":{
+                     "text":{
+                        "en":"Clothing",
+                        "es":"Kimonos"
+                     },
+                     "style":{
+                        "color":"#ffffff"
+                     }
+                  },
+                  "subTitle":{
+                     "text":{
+                        "en":"New",
+                        "es":"Blusas y"
+                     },
+                     "style":{
+                        "color":"#ffffff"
+                     }
+                  },
+                  "id":"3",
+                  "image":{
+                     "es":"https://mejorshop.com/wp-content/uploads/2020/08/Ropa-Homepage-1.png"
+                  }
+               },
+               {
+                  "id":"88b73bdf-44d1-4684-aa6d-b6505d728d3c",
+                  "active":false,
+                  "image":{
+                     "es":"https://mejorshop.com/wp-content/uploads/2020/08/Book-HomePage-3.png"
+                  },
+                  "heading":{
+                     "text":{
+                        "es":"Libros"
+                     },
+                     "style":{
+                        "color":"#ffffff"
+                     }
+                  },
+                  "subTitle":{
+                     "text":{
+                        "es":"Usados y"
+                     },
+                     "style":{
+                        "color":"#ffffff"
+                     }
+                  },
+                  "title":{
+                     "text":{
+                        "es":"Nuevos"
+                     },
+                     "style":{
+                        "color":"#ffffff"
+                     }
+                  },
+                  "action":{
+                     "type":"category",
+                     "id":"372"
                   },
                   "enable_button":true
                },
                {
-                  "id":"2",
-                  "active":false,
                   "heading":{
                      "text":{
-                        "en":"60% OFF",
-                        "es":"Alimentos y Bebidas"
+                        "es":"Molvu Mochilas"
                      },
                      "style":{
-
+                        "color":"#ffffff"
                      }
                   },
-                  "subTitle":{
-                     "text":{
-                        "en":"New",
-                        "es":"Super"
-                     },
-                     "style":{
-
-                     }
-                  },
-                  "title":{
-                     "text":{
-                        "en":"Clothing",
-                        "es":"Foods"
-                     },
-                     "style":{
-
-                     }
-                  },
-                  "image":{
-                     "es":"https://mejorshop.com/wp-content/uploads/2020/08/Food-Homepage-1.png"
-                  },
+                  "active":true,
                   "enable_button":true,
-                  "action":{
-                     "type":"category",
-                     "id":"157"
-                  }
-               },
-               {
-                  "id":"3",
-                  "active":false,
-                  "heading":{
+                  "btn_name":{
                      "text":{
-                        "en":"60% OFF",
-                        "es":"Bebes y Niños"
+                        
                      },
                      "style":{
-
-                     }
-                  },
-                  "subTitle":{
-                     "text":{
-                        "en":"New",
-                        "es":"Juguetes y"
-                     },
-                     "style":{
-
-                     }
-                  },
-                  "title":{
-                     "text":{
-                        "en":"Clothing",
-                        "es":"Zapatos"
-                     },
-                     "style":{
-
+                        "color":"#ffffff"
                      }
                   },
                   "action":{
                      "type":"category",
-                     "id":"152"
+                     "id":"1245"
                   },
-                  "enable_button":true,
+                  "title":{
+                     "text":{
+                        "es":"Trabajo"
+                     },
+                     "style":{
+                        "color":"#ffffff"
+                     }
+                  },
+                  "subTitle":{
+                     "text":{
+                        "es":"Estudios o"
+                     },
+                     "style":{
+                        "color":"#ffffff"
+                     }
+                  },
+                  "id":"a91a87c0-a2e7-496e-9114-941a7c9c60cf",
                   "image":{
-                     "es":"https://mejorshop.com/wp-content/uploads/2020/08/Kids-Homepage-1.png"
+                     "es":"https://mejorshop.com/wp-content/uploads/2020/09/APP-HOMEPAGE.png"
                   }
                }
             ],
@@ -257,7 +314,7 @@
       "name":"Categories",
       "icon":"folder-open",
       "layout":{
-         "value":"grid",
+         "value":"carousel",
          "options":[
             {
                "key":"carousel",
@@ -293,11 +350,11 @@
                   "es":"Categorías"
                },
                "style":{
-
+                  
                }
             },
             "defaultValue":{
-
+               
             },
             "name":"Text heading"
          },
@@ -317,13 +374,13 @@
          {
             "key":"width",
             "field":"input",
-            "value":109,
+            "value":"60",
             "name":"Width"
          },
          {
             "key":"height",
             "field":"input",
-            "value":109,
+            "value":"60",
             "name":"Height"
          },
          {
@@ -379,7 +436,7 @@
       "name":"Product Category",
       "icon":"qrcode",
       "layout":{
-         "value":"grid",
+         "value":"threecolumns",
          "options":[
             {
                "key":"onecolumn",
@@ -427,11 +484,11 @@
                   "es":"Alimentos y Bebidas"
                },
                "style":{
-
+                  
                }
             },
             "defaultValue":{
-
+               
             },
             "name":"Text heading"
          },
@@ -444,19 +501,19 @@
          {
             "key":"limit",
             "field":"input",
-            "value":4,
+            "value":"8",
             "name":"Limit"
          },
          {
             "key":"width",
             "field":"input",
-            "value":204,
+            "value":"150",
             "name":"Width"
          },
          {
             "key":"height",
             "field":"input",
-            "value":"204",
+            "value":"150",
             "name":"Height"
          }
       ],
@@ -491,7 +548,7 @@
       "name":"Product Category",
       "icon":"qrcode",
       "layout":{
-         "value":"grid",
+         "value":"threecolumns",
          "options":[
             {
                "key":"onecolumn",
@@ -539,11 +596,11 @@
                   "es":"Belleza"
                },
                "style":{
-
+                  
                }
             },
             "defaultValue":{
-
+               
             },
             "name":"Text heading"
          },
@@ -556,19 +613,19 @@
          {
             "key":"limit",
             "field":"input",
-            "value":4,
+            "value":"8",
             "name":"Limit"
          },
          {
             "key":"width",
             "field":"input",
-            "value":204,
+            "value":"150",
             "name":"Width"
          },
          {
             "key":"height",
             "field":"input",
-            "value":"204",
+            "value":"150",
             "name":"Height"
          }
       ],
@@ -603,7 +660,7 @@
       "name":"Product Category",
       "icon":"qrcode",
       "layout":{
-         "value":"grid",
+         "value":"threecolumns",
          "options":[
             {
                "key":"onecolumn",
@@ -651,11 +708,11 @@
                   "es":"Accesorios"
                },
                "style":{
-
+                  
                }
             },
             "defaultValue":{
-
+               
             },
             "name":"Text heading"
          },
@@ -668,19 +725,19 @@
          {
             "key":"limit",
             "field":"input",
-            "value":4,
+            "value":"8",
             "name":"Limit"
          },
          {
             "key":"width",
             "field":"input",
-            "value":204,
+            "value":"150",
             "name":"Width"
          },
          {
             "key":"height",
             "field":"input",
-            "value":"204",
+            "value":"150",
             "name":"Height"
          }
       ],
@@ -715,7 +772,7 @@
       "name":"Product Category",
       "icon":"qrcode",
       "layout":{
-         "value":"grid",
+         "value":"threecolumns",
          "options":[
             {
                "key":"onecolumn",
@@ -763,11 +820,11 @@
                   "es":"Libros"
                },
                "style":{
-
+                  
                }
             },
             "defaultValue":{
-
+               
             },
             "name":"Text heading"
          },
@@ -780,19 +837,19 @@
          {
             "key":"limit",
             "field":"input",
-            "value":4,
+            "value":"8",
             "name":"Limit"
          },
          {
             "key":"width",
             "field":"input",
-            "value":204,
+            "value":"150",
             "name":"Width"
          },
          {
             "key":"height",
             "field":"input",
-            "value":"204",
+            "value":"150",
             "name":"Height"
          }
       ],
@@ -827,7 +884,7 @@
       "name":"Vendors",
       "icon":"tablet",
       "layout":{
-
+         
       },
       "fields":[
          {
@@ -853,11 +910,11 @@
                   "es":"Tiendas"
                },
                "style":{
-
+                  
                }
             },
             "defaultValue":{
-
+               
             },
             "name":"Text heading"
          },

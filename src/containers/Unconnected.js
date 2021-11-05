@@ -5,11 +5,13 @@ import Empty from './Empty';
 import { margin } from 'src/components/config/spacing';
 
 const Unconnected = ({ clickTry }) => {
+  const {screenProps: {t}} = this.props;
+
   return (
     <ThemedView isFullView>
       <Empty
-        title='Sin conexión a Internet'
-        subTitle='Comprueba tu conexión a Internet y vuelve a intentarlo.'
+        title={t('common:text_no_wifi_title')}
+        subTitle={t('common:text_no_wifi_subtitletitle')}
         avatarElement={<ThemedView colorSecondary style={styles.avatar} >
           <Image
             source={require('src/assets/images/unconnected.png')}

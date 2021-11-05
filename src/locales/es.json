@@ -189,7 +189,10 @@
     "text_shopping": "Volver a Shop",
     "text_shipping_select_error": "Selecciona el método de envío",
     "text_payment_select_error": "Selecciona el método de pago",
-    "text_shipping_store": "{{name}} Envío"
+    "text_shipping_store": "{{name}} Envío",
+    "text_no_wifi_title": "Sin conexión a Internet",
+    "text_no_wifi_subtitle": "Comprueba tu conexión a Internet y vuelve a intentarlo."
+
   },
   "getting": {
     "text_title_1": "Compra Online",

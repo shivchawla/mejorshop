@@ -36,6 +36,7 @@
     "text_stores": "All vendor",
     "text_new": "NEW",
     "text_sale": "SALE",
+    "text_outofstock": "OUT OF STOCK",
     "text_loading": "Loading",
     "text_cancel": "Cancel",
     "text_clear": "Clear",
@@ -69,7 +70,9 @@
     "text_save" : "Save",
     "text_sales" : "Sales",
     "text_state" : "State/Country",
-    "text_downloads": "Downloads"
+    "text_downloads": "Downloads",
+    "text_no_wifi_title": "No Internet Connection",
+    "text_no_wifi_subtitle": "Check your internet connection and try again."
   },
   "auth": {
     "text_input_email_address": "Email Address or Username *",
