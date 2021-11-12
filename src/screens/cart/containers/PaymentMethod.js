@@ -118,8 +118,8 @@ class PaymentMethod extends React.Component {
       this.handleConfirm();
     })
     .catch(err => {
-      console.log(err);
-      console.log("Bank transfer went bad!!");
+      // console.log(err);
+      // console.log("Bank transfer went bad!!");
     })
   }
 

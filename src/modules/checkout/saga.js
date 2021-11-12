@@ -99,7 +99,7 @@ function* updateOrderReviewSaga({payload}) {
     yield put({type: Actions.UPDATE_ORDER_REVIEW_SUCCESS, payload: res});
     yield call(payload.cb, res);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     yield put({type: Actions.UPDATE_ORDER_REVIEW_ERROR, error});
   }
 }
@@ -157,7 +157,7 @@ function* processCheckout({payload}) {
     }
     yield call(payload.cb, res);
   } catch (error) {
-    console.log('processCheckout e', error);
+    // console.log('processCheckout e', error);
     yield put({type: Actions.CHECKOUT_ERROR, error});
   }
 }

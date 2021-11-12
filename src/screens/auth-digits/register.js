@@ -146,7 +146,7 @@ class RegisterScreen extends React.Component {
           }
 
         } else {
-          console.log('error');
+          // console.log('error');
           this.setState({
             loading: false,
           });

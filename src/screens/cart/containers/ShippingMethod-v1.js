@@ -84,7 +84,6 @@ class ShippingMethod extends React.Component {
         }
       }
     } catch (err) {
-      console.log(err);
       this.setState({
         loading: false,
       })

@@ -61,20 +61,20 @@ class App extends Component<Props> {
     OneSignal.removeEventListener('ids', this.onIds);
   }
 
-  onReceived(notification) {
-    console.log('Notification received: ', notification);
-  }
+  // onReceived(notification) {
+  //   console.log('Notification received: ', notification);
+  // }
 
-  onOpened(openResult) {
-    console.log('Message: ', openResult.notification.payload.body);
-    console.log('Data: ', openResult.notification.payload.additionalData);
-    console.log('isActive: ', openResult.notification.isAppInFocus);
-    console.log('openResult: ', openResult);
-  }
+  // onOpened(openResult) {
+  //   console.log('Message: ', openResult.notification.payload.body);
+  //   console.log('Data: ', openResult.notification.payload.additionalData);
+  //   console.log('isActive: ', openResult.notification.isAppInFocus);
+  //   console.log('openResult: ', openResult);
+  // }
 
-  onIds(device) {
-    console.log('Device info: ', device);
-  }
+  // onIds(device) {
+  //   console.log('Device info: ', device);
+  // }
 
   render() {
     return (

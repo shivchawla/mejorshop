@@ -33,12 +33,23 @@ export const getProductsByVendorId = (vendor_id, query) =>
  * @returns {*}
  */
 
-export const getVendors = query =>
-  request.get(
+// export const getVendors = query =>
+//   request.get(
+//     `/wcfmmp/v1/store-vendors?${queryString.stringify(query, {
+//       arrayFormat: 'comma',
+//     })}`,
+//   );
+
+export const getVendors = query => { 
+  console.log("Fetching Vendors");
+  console.log(query);
+  
+  return request.get(
     `/${PLUGIN_NAME}/v1/vendors?${queryString.stringify(query, {
       arrayFormat: 'comma',
     })}`,
   );
+}
 
 /**
  * Fetch review by vendor id

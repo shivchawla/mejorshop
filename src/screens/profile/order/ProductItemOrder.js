@@ -44,7 +44,7 @@ class ProductItemOrder extends React.Component {
         variation,
       });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 

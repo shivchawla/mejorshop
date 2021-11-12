@@ -114,7 +114,6 @@ class LoginMobile extends React.Component {
         }
 
       } else {
-        console.log('error');
         this.setState({
           loading: false,
         });

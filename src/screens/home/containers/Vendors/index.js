@@ -44,7 +44,7 @@ class Vendors extends Component {
       fields && fields.limit && parseInt(fields.limit)
         ? parseInt(fields.limit)
         : 4;
-    const query = {per_page: limit, has_product: 1};
+    const query = {per_page: limit, has_product: "yes"};
     getVendors(query)
       .then(data => {
         this.setState({
@@ -56,7 +56,7 @@ class Vendors extends Component {
         this.setState({
           loading: false,
         });
-        console.log(e);
+        // console.log(e);
       });
   }
   clickDetailVendor = data => {

@@ -54,7 +54,7 @@ class SocialMethods extends React.Component {
         });
       }
     } catch (e) {
-      console.log('Login fail with error: ' + e);
+      // console.log('Login fail with error: ' + e);
       this.props.dispatch(cancelSocialLogin(network));
     }
   };
@@ -98,7 +98,7 @@ class SocialMethods extends React.Component {
       this.props.dispatch(signInWithApple(appleAuthRequestResponse));
     } catch (e) {
       this.props.dispatch(cancelSocialLogin(network));
-      console.log(e);
+      // console.log(e);
     }
   };
 

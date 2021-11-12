@@ -190,7 +190,7 @@ function* updateOrderSaga({ payload }) {
     //   payload: orderUpdate,
     // });
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     yield put({
       type: Actions.UPDATE_ORDER_ERROR,
       error: e,

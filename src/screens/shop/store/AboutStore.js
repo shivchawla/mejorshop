@@ -87,12 +87,12 @@ class AboutStore extends React.Component {
     if (!store) {
       return null;
     }
-    const {vendor_address, vendor_email, vendor_phone, social, about, 
+    const {shop_address, shop_email, shop_phone, social, shop_description: about, 
       store_hide_email = "yes", store_hide_address = "yes", store_hide_phone = "yes"} = store;
 
     // const countries = country.get('data').toJS();
 
-    // const addressStr = store.vendor_address;
+    // const addressStr = store.shop_address;
     // getAddress(address, countries);
 
     return (
@@ -103,34 +103,34 @@ class AboutStore extends React.Component {
           {/*  style={{width: widthImage, height: heightImage, marginBottom: margin.big + 7}}/>*/}
           <View>
             <TextHtml value={about}/>
-            {vendor_address && vendor_address != '' && store_hide_address == "no" && (<View style={styles.viewRowInfo}>
+            {shop_address && shop_address != '' && store_hide_address == "no" && (<View style={styles.viewRowInfo}>
               <Icon
                 name={'map'}
                 size={16}
                 containerStyle={styles.iconInfo}
                 color={grey4}
               />
-              <Text>{vendor_address}</Text>
+              <Text>{shop_address}</Text>
             </View>)}
 
-            {vendor_phone && vendor_phone != '' && store_hide_phone == "no" && (<View style={styles.viewRowInfo}>
+            {shop_phone && shop_phone != '' && store_hide_phone == "no" && (<View style={styles.viewRowInfo}>
               <Icon
                 name="phone-call"
                 size={16}
                 containerStyle={styles.iconInfo}
                 color={grey4}
               />
-              <Text>{vendor_phone}</Text>
+              <Text>{shop_phone}</Text>
             </View>)}
 
-            {vendor_email && vendor_email != '' && store_hide_email == "no" && (<View style={styles.viewRowInfo}>
+            {shop_email && shop_email != '' && store_hide_email == "no" && (<View style={styles.viewRowInfo}>
               <Icon
                 name="mail"
                 size={16}
                 containerStyle={styles.iconInfo}
                 color={grey4}
               />
-              <Text>{vendor_email}</Text>
+              <Text>{shop_email}</Text>
             </View>)}
 
           </View>

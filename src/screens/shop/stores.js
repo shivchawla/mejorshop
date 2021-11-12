@@ -29,9 +29,9 @@ class Stores extends React.Component {
       // const {language} = this.props;
       const {page} = this.state;
       const query = {
-        page,
+        paged: page,
         per_page: 10,
-        has_product: 1,
+        has_product: "yes",
         // lang: language
       };
       const data = await getVendors(query);
@@ -118,6 +118,7 @@ class Stores extends React.Component {
             keyExtractor={item => `${item.id}`}
             renderItem={({item}) => (
               <VendorHeaderDetail
+                key={item.vendor_shop_name}
                 store={item}
                 isClickDetail
                 style={styles.item}

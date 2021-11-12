@@ -110,33 +110,32 @@ class DownloadsScreen extends React.Component {
 				path: `${dirs.DownloadDir}/${filename}`
 			},
 		})
-			.fetch('GET', item.file.file, {
-				'Cache-Control': 'no-store'
+		.fetch('GET', item.file.file, {
+			'Cache-Control': 'no-store'
+		})
+		.progress({ interval: 200 }, (received, total) => {
+			this.setState({
+				progress: (received / total)
 			})
-			.progress({ interval: 200 }, (received, total) => {
-				this.setState({
-					progress: (received / total)
-				})
+		})
+		.then(res => {
+			this.setState({
+				progress: 100,
 			})
-			.then(res => {
-				this.setState({
-					progress: 100,
-				})
-				setTimeout(() => {
-					this.openDocument(res.path())
-					showMessage({ message: t('notifications:text_download_success'), type: 'success', icon: 'success' })
-					this.setState({ isDownload: false, progress: 0, indexDownload: null })
-				}, 500);
+			setTimeout(() => {
+				this.openDocument(res.path())
+				showMessage({ message: t('notifications:text_download_success'), type: 'success', icon: 'success' })
+				this.setState({ isDownload: false, progress: 0, indexDownload: null })
+			}, 500);
+		})
+		.catch((errorMessage, statusCode) => {
+			this.setState({
+				isDownload: false,
+				progress: 0,
+				indexDownload: null
 			})
-			.catch((errorMessage, statusCode) => {
-				this.setState({
-					isDownload: false,
-					progress: 0,
-					indexDownload: null
-				})
-				console.log("error with downloading file", errorMessage)
-			})
-		// 	})
+			// console.log("error with downloading file", errorMessage)
+		})
 	}
 
 	openDocument = async path => {

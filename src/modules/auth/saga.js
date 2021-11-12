@@ -152,7 +152,6 @@ function* signUpWithOtplSaga({ payload }) {
       yield call(handleError, new Error('Something wrong.'));
     }
   } catch (e) {
-    console.log(e);
     yield call(handleError, e);
     yield put({
       type: Actions.SIGN_UP_WITH_EMAIL_ERROR,
@@ -381,7 +380,6 @@ function* signOutSaga() {
     // Try logout Firebase
     yield call(signOut);
   } catch (e) {
-    console.log(e);
     // yield call(handleError, e);
   }
 }

@@ -18,7 +18,6 @@ import {margin, padding} from 'src/components/config/spacing';
 const {width} = Dimensions.get('window');
 const WIDTH_IMAGE = width;
 const WIDTH_TEXT = Math.round(width) - 2*padding.large;
-console.log(WIDTH_TEXT);
 const HEIGHT_IMAGE = (WIDTH_IMAGE * 390) / 375;
 
 class GetStartSwiper extends React.Component {

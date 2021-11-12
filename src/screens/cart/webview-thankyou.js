@@ -27,9 +27,9 @@ class WebviewThankYou extends Component {
     navigation.navigate(homeTabs.shop);
   };
 
-  handleResponse = data => {
-    console.log(data);
-  };
+  // handleResponse = data => {
+  //   console.log(data);
+  // };
 
   render() {
     const {loading, uri} = this.state;

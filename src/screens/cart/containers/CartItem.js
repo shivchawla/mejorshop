@@ -43,13 +43,14 @@ class CartItem extends React.Component {
     if (!item) {
       return null;
     }
+
     const {
       key,
       product_id,
       thumb,
       thumbnail,
       is_sold_individually,
-      name,
+      product_name: name,
       quantity,
       line_subtotal,
       line_total,
@@ -92,7 +93,7 @@ class CartItem extends React.Component {
             {<Row style={styles.viewAttribute}>
               {attributes ? attributes.map((item, index) => this.renderVariation(item, index)) : null}
             </Row>}
-            <Text style={style.title}>Vendido por: <Text onPress={() => goToStore(vendor.id)}>{vendor.vendor_shop_name}</Text></Text>
+            <Text style={style.title}>Vendido por: <Text onPress={() => goToStore(vendor.id)}>{vendor.store_name}</Text></Text>
           </View>
           {!is_sold_individually && (
             <Quantity value={parseInt(quantity)} onChange={(value) => updateQuantity(item, value)} />

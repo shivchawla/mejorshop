@@ -20,7 +20,7 @@ describe('Button Component', () => {
 
   it('should be call onPress events', () => {
     const onPress = jest.fn();
-    console.log = jest.fn();
+    // console.log = jest.fn();
     const wrapper = shallow(<Button theme={theme} />);
 
     // Call default onPress

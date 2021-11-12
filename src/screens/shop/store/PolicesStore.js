@@ -18,25 +18,17 @@ class PolicesStore extends Component {
       return null;
     }
 
-    const {store_policies} = store;
-
-    // console.log(store);
-
-    if (!store_policies) {
-      return null;
-    }
-    
-    const {shipping_policy, refund_policy, cancellation_policy} = store_policies;
+    const {wcfm_shipping_policy, wcfm_refund_policy, wcfm_cancellation_policy} = store;
 
     return (
       <ScrollView>
         <Container>
           <Text h3 medium style={styles.title}>Política de Envíos</Text>
-          <TextHtml addLineBreaks={false} style={styles} value={shipping_policy}/>
+          <TextHtml addLineBreaks={false} style={styles} value={wcfm_shipping_policy}/>
           <Text h3 medium style={styles.title}>Política de Reembolso</Text>
-          <TextHtml addLineBreaks={false} style={styles} value={refund_policy}/>
+          <TextHtml addLineBreaks={false} style={styles} value={wcfm_refund_policy}/>
           <Text h3 medium style={styles.title}>Política de Cancelación/Devolución/Cambio</Text>
-          <TextHtml addLineBreaks={false} style={styles} value={cancellation_policy}/>
+          <TextHtml addLineBreaks={false} style={styles} value={wcfm_cancellation_policy}/>
         </Container>
       </ScrollView>
     );

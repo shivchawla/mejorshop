@@ -174,8 +174,6 @@ function* addCouponSaga({payload}) {
     }
   } catch (e) {
     
-    // console.log(e.message);
-
     yield put({
       type: Actions.ADD_COUPON_ERROR,
     });

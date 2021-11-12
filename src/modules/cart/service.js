@@ -10,8 +10,9 @@ import {CART_PLUGIN_NAME} from 'src/config/development';
  * @version 1.0.0
  * @returns {Promise | Promise<unknown>}
  */
-export const addToCart = (data) => request.post(`/${CART_PLUGIN_NAME}/v1/add-item`, data);
-
+export const addToCart = (data) => {
+    return request.post(`/${CART_PLUGIN_NAME}/v1/add-item`, data);
+}
 // export const removeCartItem = (data) => {
 //   return request.post(`/${CART_PLUGIN_NAME}/v1/remove-cart-item`, data);
 // }
@@ -35,6 +36,6 @@ export const addCoupon = (data) => request.post(`/${CART_PLUGIN_NAME}/v1/add-dis
 
 export const removeCoupon = (data) => request.post(`/${CART_PLUGIN_NAME}/v1/remove-coupon`, data);
 
-export const fetchShippingMethod = (query) => 
-	request.get(`/${CART_PLUGIN_NAME}/v1/shipping-methods?${queryString.stringify(query, { arrayFormat: 'comma' })}`);
-	
+export const fetchShippingMethod = (query) => {
+	return request.get(`/${CART_PLUGIN_NAME}/v1/shipping-methods?${queryString.stringify(query, { arrayFormat: 'comma' })}`);
+}

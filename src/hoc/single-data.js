@@ -12,7 +12,7 @@ export const getSingleData = lifecycle({
       fetchData(id, lang).then(data => {
         updateData(data);
       }).catch(error => {
-        console.log(error, id);
+        // console.log(error, id);
       }).finally(() => {
         updateLoading(false);
       })

@@ -44,7 +44,7 @@ class SocialMethods extends React.Component {
         });
       }
     } catch (e) {
-      console.log('Login fail with error: ' + e);
+      // console.log('Login fail with error: ' + e);
     }
   };
 
@@ -54,7 +54,7 @@ class SocialMethods extends React.Component {
       const { idToken } = await GoogleSignin.signIn();
       this.props.dispatch(signInWithGoogle(idToken));
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
       } else if (error.code === statusCodes.IN_PROGRESS) {
@@ -75,7 +75,7 @@ class SocialMethods extends React.Component {
       });
       this.props.dispatch(signInWithApple(appleAuthRequestResponse));
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 

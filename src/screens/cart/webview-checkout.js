@@ -47,7 +47,7 @@ class WebviewCheckout extends Component {
     const {navigation, theme, dispatch, currency} = this.props;
 
     const parsed = queryString.parse(new URL(url).search);
-    console.log(parsed);
+    // console.log(parsed);
 
     if (url.includes('/order-received/')) {
       navigation.replace(cartStack.webview_thank_you, {uri: `${url}&mobile=1&theme=${theme}&currency=${currency}`});
