@@ -5,8 +5,8 @@ target 'OneSignalNotificationServiceExtension' do
   pod 'OneSignal', '>= 2.9.3', '< 3.0'
 end
 
-target 'rn_oreo' do
-  # Pods for rn_oreo
+target 'mshop' do
+  # Pods for mshop
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -43,7 +43,7 @@ target 'rn_oreo' do
   pod 'RNFastImage', :path => '../node_modules/react-native-fast-image'
   pod 'SDWebImageWebPCoder'
 
-  target 'rn_oreoTests' do
+  target 'mshopTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -51,10 +51,10 @@ target 'rn_oreo' do
   use_native_modules!
 end
 
-target 'rn_oreo-tvOS' do
-  # Pods for rn_oreo-tvOS
+target 'mshop-tvOS' do
+  # Pods for mshop-tvOS
 
-  target 'rn_oreo-tvOSTests' do
+  target 'mshop-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

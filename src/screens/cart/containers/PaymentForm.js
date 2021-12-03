@@ -141,7 +141,7 @@ class PaymentForm extends React.Component {
         />*/}
 
         <Heading
-          title={'¿Agregar NIT para facturación?'}
+          title={t('cart:txt_add_nit')}
           containerStyle={styles.headerText}
         />
 

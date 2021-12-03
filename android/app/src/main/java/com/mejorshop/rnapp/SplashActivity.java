@@ -1,4 +1,4 @@
-package com.rn_oreo;
+package com.mejorshop.rnapp;
 
 import android.content.Intent;
 import android.os.Bundle;

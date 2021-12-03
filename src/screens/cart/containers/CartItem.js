@@ -1,6 +1,8 @@
 import React from 'react';
 import split from 'lodash/split';
 import get from 'lodash/get';
+import { compose } from 'redux';
+import { withTranslation } from 'react-i18next';
 
 
 import {fromJS} from 'immutable';
@@ -39,7 +41,7 @@ class CartItem extends React.Component {
   };
 
   render() {
-    const {theme, item, currency, updateQuantity, goToProduct, goToStore, style} = this.props;
+    const {theme, item, currency, updateQuantity, goToProduct, goToStore, style, t} = this.props;
     if (!item) {
       return null;
     }
@@ -93,7 +95,7 @@ class CartItem extends React.Component {
             {<Row style={styles.viewAttribute}>
               {attributes ? attributes.map((item, index) => this.renderVariation(item, index)) : null}
             </Row>}
-            <Text style={style.title}>Vendido por: <Text onPress={() => goToStore(vendor.id)}>{vendor.store_name}</Text></Text>
+            <Text style={style.title}>{t('cart:text_sold_by')}<Text onPress={() => goToStore(vendor.id)}>{vendor.store_name}</Text></Text>
           </View>
           {!is_sold_individually && (
             <Quantity value={parseInt(quantity)} onChange={(value) => updateQuantity(item, value)} />
@@ -151,4 +153,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withTheme(CartItem);
+export default compose(withTranslation(), withTheme)(CartItem);

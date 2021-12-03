@@ -191,7 +191,9 @@
     "text_payment_select_error": "Selecciona el método de pago",
     "text_shipping_store": "{{name}} Envío",
     "text_no_wifi_title": "Sin conexión a Internet",
-    "text_no_wifi_subtitle": "Comprueba tu conexión a Internet y vuelve a intentarlo."
+    "text_no_wifi_subtitle": "Comprueba tu conexión a Internet y vuelve a intentarlo.",
+    "text_add_nit": "¿Agregar NIT para facturación?",
+    "text_sold_by": "Vendido por: "
 
   },
   "getting": {

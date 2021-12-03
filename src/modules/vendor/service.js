@@ -41,14 +41,11 @@ export const getProductsByVendorId = (vendor_id, query) =>
 //   );
 
 export const getVendors = query => { 
-  console.log("Fetching Vendors");
-  console.log(query);
-  
   return request.get(
     `/${PLUGIN_NAME}/v1/vendors?${queryString.stringify(query, {
       arrayFormat: 'comma',
     })}`,
-  );
+  ).then(data => data.filter(item => item));
 }
 
 /**

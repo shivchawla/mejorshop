@@ -1,4 +1,4 @@
-package com.rn_oreo;
+package com.mejorshop.rnapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -21,7 +21,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "rn_oreo";
+    return "mshop";
   }
 
   @Override
