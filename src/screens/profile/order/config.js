@@ -23,26 +23,26 @@ export const objectStatus = (status = 'completed') => {
     return {
       icon: 'check',
       color: green,
-      text: 'Completado' ,
+      text: 'Completed' ,
     };
   }
   if (status === 'processing') {
     return {
       icon: 'clock',
       color: teal,
-      text: 'Procesando',
+      text: 'Processing',
     };
   }
   if (status === 'cancelled' || status === 'failed') {
     return {
       icon: 'x',
       color: red,
-      text: status === 'cancelled' ? 'Cancelado' : 'Fallido',
+      text: status === 'cancelled' ? 'Canceled' : 'Failed',
     };
   }
   return {
     icon: 'clock',
     color: yellow,
-    text : status == "pending" ? 'Pendiente de Pago' : 'En Espera',
+    text : status == "pending" ? 'Pending Payment' : 'Waiting',
   };
 };

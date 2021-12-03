@@ -22,7 +22,7 @@ function* addToCartSaga({payload}) {
     yield call(addToCart, item);
     yield call(cb, {success: true});
     yield call(showMessage, {
-      message: 'El producto se ha agregado exitosamente',
+      message: 'The product has been added succesfully',
       type: 'success',
     });
     yield put({
@@ -39,7 +39,7 @@ function* addToCartSaga({payload}) {
     });
 
     yield call(showMessage, {
-      message: '¡Lo siento! No puedes agregar esté articulo!',
+      message: 'Sorry! Product could not be added!',
       type: 'danger',
     });
   }
@@ -103,7 +103,7 @@ function* updateQuantityCartSaga({payload}) {
     yield call(updateCartQuantity, item);
     yield call(cb);
     yield call(showMessage, {
-      message: 'La cantidad de producto se ha actualizado exitosamente',
+      message: 'The product quantity has been updated successfully',
       type: 'success',
     });
     yield put({

@@ -240,7 +240,7 @@ class Shipping extends React.Component {
             title={t('cart:text_delivery')}
             subTitleComponent={isLogin && (
               <Button
-                title={editAddress ? t('cart:text_use_my_address') : 'Editar'}
+                title={editAddress ? t('cart:text_use_my_address') : t('common:text_edit')}
                 type={'outline'}
                 size={'small'}
                 onPress={editAddress ? this.handleUserMyShippingAddress : this.handleEditAddress}
@@ -267,7 +267,7 @@ class Shipping extends React.Component {
             <Container style={{paddingTop: 0}}>
             <Header
               leftComponent={<IconHeader onPress={() => this.handleBackModal()}/>}
-              centerComponent={<TextHeader title={t('Agregar Direccíon de Envío')} />}
+              centerComponent={<TextHeader title={t('cart:text_add_billing')} />}
             />
             <ShippingForm
               errors={errors}
@@ -278,7 +278,7 @@ class Shipping extends React.Component {
           </ScrollView>
           
           <Container style={styles.footer}>
-            <Button title='Agregar' onPress={() => this.handleAddressAddition()}/>
+            <Button title={t('cart:text_add_address')} onPress={() => this.handleAddressAddition()}/>
           </Container>
           
           </View>

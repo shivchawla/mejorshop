@@ -90,6 +90,7 @@ export function checkQuantity(product, quantity) {
       check = true;
     }
   }
+  
   return check;
 };
 

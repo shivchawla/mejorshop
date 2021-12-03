@@ -98,7 +98,7 @@ class CartScreen extends React.Component {
   // };
 
   updateQuantity = (item, quantity) => {
-    const {dispatch} = this.props;
+    const {dispatch, screenProps: {t}} = this.props;
     const {key, product, variation} = item;
 
     if (quantity < 1) {
@@ -116,8 +116,8 @@ class CartScreen extends React.Component {
         );
       } else {
         showMessage({
-          message: '¡Oops! No puedes cambiar la cantidad',
-          description: 'No hay más disponible',
+          message: t('cart:text_cant_update'),
+          description: t('cart:text_not_available'),
           type: 'danger',
         });
       }
@@ -125,14 +125,14 @@ class CartScreen extends React.Component {
   };
 
   notificationDeleteItem = (key) => {
-    const {dispatch} = this.props;
+    const {dispatch, screenProps: {t}} = this.props;
 
     Alert.alert(
-      "Eliminar Artículo",
-      "¿Estás seguro de eliminar el artículo?",
+      t('cart:text_remove_item'),
+      t('cart:text_remove_item_sure'),
       [
         {
-          text: 'Cancelar',
+          text: t('common:text_cancel'),
           onPress: () => {},
           style: 'cancel',
         },

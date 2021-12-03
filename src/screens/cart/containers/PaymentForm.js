@@ -141,7 +141,7 @@ class PaymentForm extends React.Component {
         />*/}
 
         <Heading
-          title={t('cart:txt_add_nit')}
+          title={t('cart:text_add_nit')}
           containerStyle={styles.headerText}
         />
 

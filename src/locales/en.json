@@ -57,7 +57,7 @@
     "text_next": "Next step",
     "text_edit": "Edit",
     "text_hide": "Hide",
-    "text_payment": "Review Payment",
+    "text_payment": "Review Order",
     "text_confirm": "Confirm Order",
     "text_go_contact": "Contact",
     "text_go_home": "Home",
@@ -194,7 +194,14 @@
     "text_no_wifi_title": "No Internet Connection",
     "text_no_wifi_subtitle": "Check your internet connection and try again.",
     "text_add_nit": "Add NIT for billing?",
-    "text_sold_by": "Sold by: "
+    "text_sold_by": "Sold by: ",
+    "text_add_billing": "Add Billing Address",
+    "text_add_address": "Add Address",
+    "text_cant_update": "Oops! Can't change the quantity",
+    "text_not_available": "Not Available",
+    "text_remove_item": "Remove Item",
+    "text_remove_item_sure": "Are you sure to remove item?",
+    "text_quantity": "Quantity"
   },
   "getting": {
     "text_title_1": "Buy Online",

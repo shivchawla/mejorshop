@@ -17,6 +17,8 @@ import {borderRadius, margin, padding} from 'src/components/config/spacing';
 
 const OrderLineItem = props => {
   const {name, quantity, total, theme, currency} = props;
+  const {t} = useTranslation();
+
 
   return (
     <Row style={[
@@ -29,7 +31,7 @@ const OrderLineItem = props => {
           }]}>
       {<Col style={styles.content}>
         <Text medium h4 style={styles.title}>{name}</Text>
-        <Text>Cantidad: {quantity}</Text>
+        <Text>{t('cart:text_quantity')}: {quantity}</Text>
       </Col>}
       <Text medium>{currencyFormatter(total, currency)}</Text>
     </Row>

@@ -193,8 +193,14 @@
     "text_no_wifi_title": "Sin conexión a Internet",
     "text_no_wifi_subtitle": "Comprueba tu conexión a Internet y vuelve a intentarlo.",
     "text_add_nit": "¿Agregar NIT para facturación?",
-    "text_sold_by": "Vendido por: "
-
+    "text_sold_by": "Vendido por: ",
+    "text_add_billing": "Agregar Direccíon de Envío",
+    "text_add_address": "Agregar Direccíon",
+    "text_cant_update": "¡Oops! No puedes cambiar la cantidad",
+    "text_not_available": "No hay más disponible",
+    "text_remove_item": "Eliminar Artículo",
+    "text_remove_item_sure": "¿Estás seguro de eliminar el artículo?",
+    "text_quantity": "Cantidad"
   },
   "getting": {
     "text_title_1": "Compra Online",
