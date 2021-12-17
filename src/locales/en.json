@@ -201,7 +201,8 @@
     "text_not_available": "Not Available",
     "text_remove_item": "Remove Item",
     "text_remove_item_sure": "Are you sure to remove item?",
-    "text_quantity": "Quantity"
+    "text_quantity": "Quantity",
+    "text_shipping_store": "{{name}} Delivery"
   },
   "getting": {
     "text_title_1": "Buy Online",

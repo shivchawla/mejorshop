@@ -133,7 +133,7 @@ class ShippingMethod extends React.Component {
       view = (<Row key={index} style={styles.container}>
           <Col>
             <Text medium style={styles.textTitle}>
-              {store_name ? t('cart:text_shipping_store', {name: store_name}) : 'MejorShop Envío'}
+              {store_name ? t('cart:text_shipping_store', {name: store_name || 'MejorShop' }) : 'MejorShop Delivery'}
             </Text>
           </Col>
           <TextHtml value={method.label} style={styleHtml}/>

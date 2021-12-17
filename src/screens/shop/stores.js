@@ -39,7 +39,7 @@ class Stores extends React.Component {
         this.setState(prevState => ({
           data: page === 1 ? Array.from(data) : [...prevState.data, ...data],
           loading: false,
-          loadingMore: data.length === 10,
+          loadingMore: true,
           refreshing: false,
         }));
       } else {

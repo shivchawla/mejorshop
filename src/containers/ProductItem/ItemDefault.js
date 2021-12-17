@@ -52,6 +52,8 @@ const ItemDefault = React.memo(props => {
     purchasable,
     stock_status,
   } = item;
+
+
   const {t} = useTranslation();
 
   const productItemStyle = {
@@ -75,7 +77,7 @@ const ItemDefault = React.memo(props => {
         <Image
           source={
             images && images.length
-              ? {uri: images[0].shop_single, headers: {Accept: 'image/webp'}}
+              ? {uri: images[0].shop_single || images[0].src}
               : require('src/assets/images/pDefault.png')
           }
           style={productItemImageStyle}
