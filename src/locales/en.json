@@ -73,7 +73,8 @@
     "text_state" : "State/Country",
     "text_downloads": "Downloads",
     "text_no_wifi_title": "No Internet Connection",
-    "text_no_wifi_subtitle": "Check your internet connection and try again."
+    "text_no_wifi_subtitle": "Check your internet connection and try again.",
+    "text_select_variation": "Select a variation to proceed"
   },
   "auth": {
     "text_input_email_address": "Email Address *",

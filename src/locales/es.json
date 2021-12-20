@@ -71,7 +71,9 @@
     "text_save" : "Guardar",
     "text_sales" : "Ventas",
     "text_state" : "Estado/Departamento",
-    "text_downloads": "Descargas"
+    "text_downloads": "Descargas",
+    "text_select_variation": "Selecciona variaciones para proceder",
+    "text_yes": "Si"
   },
   "auth": {
     "text_input_email_address": "Correo Electrónico *",

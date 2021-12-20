@@ -55,7 +55,7 @@ class ProductImages extends Component {
         {
           message: message,
           url: url,
-          title: 'Compartir',
+          title: 'Share',
         },
         {
           // // Android only:
@@ -77,7 +77,7 @@ class ProductImages extends Component {
         style={styles.viewImage}
         onPress={() => this.setState({visible: true})}>
         <Image
-          source={{uri: item.src, headers: {Accept: 'image/webp'}}}
+          source={{uri: item.src}}
           resizeMode="cover"
           style={{height: height, width: width}}
           PlaceholderContent={<ActivityIndicator />}

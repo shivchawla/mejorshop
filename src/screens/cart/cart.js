@@ -137,7 +137,7 @@ class CartScreen extends React.Component {
           style: 'cancel',
         },
         {
-          text: 'Si',
+          text: t('common:text_yes'),
           onPress: () => dispatch(removeFromCart({cart_item_key: key})),
         },
       ],

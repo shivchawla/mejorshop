@@ -24,7 +24,8 @@ const ProductStock = ({product, style}) => {
   if (!product || !product.get('id')) {
     return null;
   }
-  const status = product.get('stock_status') || 'outofstock';
+
+  const status = product.get('stock_status') || (product.get('in_stock') ? 'instock' : 'outofstock');
   const quantity = product.get('stock_quantity');
 
   const valueStock = valueTypeStock[status] || valueTypeStock.outofstock;

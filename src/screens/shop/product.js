@@ -78,6 +78,7 @@ class Product extends Component {
       defaultCurrency,
     );
     const dataProduct = product && product.id ? fromJS(product) : dataPrepare;
+
     this.state = {
       product: dataProduct,
       images: dataProduct.get('images'),
@@ -157,7 +158,7 @@ class Product extends Component {
       if (!meta_data.size || attributeProduct.size !== meta_data.size) {
         check = false;
         showMessage({
-          message: 'Selecciona variaciones para proceder',
+          message: t('common:text_select_variation'),
           type: 'danger',
         });
       }
@@ -216,6 +217,7 @@ class Product extends Component {
 
   images = () => {
     const {product, variation, images} = this.state;
+
     if (
       product.get('type') === productType.VARIABLE &&
       variation &&
@@ -311,11 +313,13 @@ class Product extends Component {
       );
     }
     const images = this.images();
+
     const related_ids = product.get('related_ids').size
       ? product.get('related_ids').toJS()
       : [];
 
     const firstImage = images.first();
+    
     const image =
       firstImage && firstImage.get('src') ? firstImage.get('src') : '';
     const stock_status = ['instock', 'onbackorder'];
