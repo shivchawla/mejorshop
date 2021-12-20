@@ -15,7 +15,7 @@ const VariationImage = (props: Props) => {
   const { theme, isSelect, image, size, disabled } = props;
   return (
     <ImageBackground
-      source={{ uri: image, headers: {Accept: 'image/webp'}}}
+      source={{ uri: image}}
       style={[
         styles.image,
         {

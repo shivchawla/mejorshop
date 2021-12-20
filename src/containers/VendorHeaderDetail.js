@@ -45,7 +45,7 @@ const VendorHeaderDetail = ({store, width, height, style, onPress}) => {
       <Image
         source={
           store.mobile_banner
-            ? {uri: store.mobile_banner, headers: {Accept: 'image/webp'}}
+            ? {uri: store.mobile_banner}
             : require('src/assets/images/pDefault.png')
         }
         style={{

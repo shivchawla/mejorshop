@@ -94,7 +94,7 @@ class Style3 extends React.Component {
                   <Image
                     source={
                       item && item.image && item.image.src
-                        ? {uri: item.image.src, headers: {Accept: 'image/webp'}}
+                        ? {uri: item.image.src}
                         : noImage
                     }
                     style={{width: size, height: size}}

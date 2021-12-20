@@ -95,7 +95,7 @@ class BlogDetail extends React.Component {
           <Image
             source={
               blog.rnlab_featured_media_url
-                ? {uri: blog.rnlab_featured_media_url, headers: {Accept: 'image/webp'}}
+                ? {uri: blog.rnlab_featured_media_url}
                 : require('src/assets/images/pDefault.png')
             }
             resizeMode="contain"
